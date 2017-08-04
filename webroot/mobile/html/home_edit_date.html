@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-约会详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<span class="l_btn">取消</span>
+				<span class="r_btn">重新发布</span>
+			</div>
+		</header>
+		<div class="wraper">
+			<div class="edit_date_box">
+				<ul class="mt40 outerblock">
+					<li>
+						<div class="edit_date_items flex">
+							<h3 class="edit_l_con">约会主题</h3>
+							<div class="edit_r_con">
+								<input type="text" placeholder="20字以内" />
+							</div>
+						</div>
+					</li>
+					<li class="noafter">
+						<div class="edit_date_items flex">
+							<h3 class="edit_l_con">约会标题</h3>
+							<div class="edit_r_con">
+								<input type="text" placeholder="约吃饭"  />
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="mt40 outerblock">
+					<li>
+						<div class="edit_date_items flex">
+							<h3 class="edit_l_con">约会时间</h3>
+							<div class="edit_r_con">
+								<input type="time" />
+							</div>
+						</div>
+					</li>
+					<li class="noafter">
+						<div class="edit_date_items flex">
+							<h3 class="edit_l_con">约会地点</h3>
+							<div class="edit_r_con">
+								<input type="text" />
+							</div>
+						</div>
+					</li>
+					<li class="noafter">
+						<div class="edit_date_items flex">
+							<h3 class="edit_l_con">约会价格</h3>
+							<div class="edit_r_con">
+								<input type="number" />
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="mt40">
+					<li>
+						<div class="edit_date_items flex flex_justify marks_edit">
+							<span class="edit_l_con">个人标签</span>
+							<div class="edit_r_con edit_r_marks">
+								4个以内
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="mt40 inner edit_date_desc">
+					<h3 class="title">约会说明</h3>
+					<div class="text_con">
+						<textarea >100字以内</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="inner">
+				<a href="javascript:void(0);" class="btn btn_cancely mt60 mb60">删除</a>
+			</div>
+		</div>
+		<!--弹出层-->
+		<div class="raper show">
+			<div class="choose_account choose_mark"  style="display: none;">
+				<div class="title">
+					<span class="cancel">取消</span>
+					 <div class="r_btn">
+					 	<span class="remove">清除</span>
+					 	<span class="complete">完成</span>
+					</div>
+				</div>
+				<!--内容-->
+				<div class="choose_mark_con">
+					<div class="choose_mark__items">
+						<h3 class="commontitle mt20 inner">约工作</h3>
+						<ul class="bgff">
+							<li class="choosed">
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li class="choosed">
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>吃饭饭</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li class='choosed'>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li class='choosed'>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+						</ul>
+					 </div>
+					 <div class="choose_mark__items">
+						<h3 class="commontitle mt20  inner">约工作</h3>
+						<ul class="bgff">
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+						</ul>
+					 </div>
+					  <div class="choose_mark__items">
+						<h3 class="commontitle mt20  inner">约工作</h3>
+						<ul class="bgff">
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+						</ul>
+					 </div>
+					  <div class="choose_mark__items">
+						<h3 class="commontitle mt20  inner">约工作</h3>
+						<ul class="bgff">
+							<li class='choosed'>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li class="choosed">
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+							<li>
+								<div class="choose_marks">
+									<span class="iconfont">&#xe624;</span>
+									<i>摄影</i>
+								</div>
+							</li>
+						</ul>
+					 </div>
+				</div>
+			</div>
+			<div class="choose-date-mark">
+				<div class="title">
+					<span class="cancel">取消</span>
+					 <div class="r_btn">
+					 	<span class="remove">清除</span>
+					 	<span class="complete">完成</span>
+					</div>
+				</div>
+				<div class="mark-content">
+				<div class="marks-box">
+					<h3 class="nav-title">类型标签</h3>
+					<div class="nav-con">
+						<ul>
+							<li class="active">小鸟依人</li>
+							<li>性感火辣</li>
+							<li>约看电影</li>
+							<li>约看电</li>
+							<li>文艺女青年文艺女</li>
+							<li>约看电影电影</li>
+							<li>约吃饭</li>
+							<li>约看电影</li>
+							<li>文艺女青年文艺女</li>
+							<li>约看电影电影</li>
+							<li>约吃饭</li>
+							<li>约看电影</li>
+						</ul>
+					</div>
+				</div>
+				<div class="marks-box">
+					<h3 class="nav-title">创意标签</h3>
+					<div class="nav-con">
+						<ul>
+							<li>文艺女青年文艺女</li>
+							<li>约看电影电影</li>
+							<li>约吃饭</li>
+							<li>约看电影</li>
+							<li>约看电影1</li>
+							<li>约看电影电影</li>
+							<li>美貌与智慧并重</li>
+							<li>约看电影电影</li>
+							<li>约吃饭</li>
+							<li>约看电影</li>
+							<li>美貌与智慧并重</li>
+							<li>约看电影电影</li>
+							<li>约吃饭</li>
+						</ul>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

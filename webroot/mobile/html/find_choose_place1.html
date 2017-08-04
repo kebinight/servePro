@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-选择约会地点</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<span class="iconfont toback">&#xe602;</span>
+				<h1>选择约会地点</h1>
+			</div>
+		</header>
+		<div class="wraper">
+			<div class="place-self">
+				<h3 class="basic_info_integrity">没有合适地点，<a href="#this" class="color_y">手动输入地址</a></h3>
+				<div class="search_place_header inner" style="display: none;">
+					<form action="">
+						<div class="search-box flex flex_justify">
+							<div class="search-btn">
+								<input type="text" placeholder="请输入约会地点" results="5" />
+							</div>
+							<span class="cancel-btn color_y">提交</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="wraper">
+			<div class="search_place_header inner">
+				<form action="">
+				<div class="search-box flex flex_justify">
+					<div class="search-btn">
+						<i class="iconfont ico">&#xe689;</i><input type="search" placeholder="请输入约会地点" results="5" />
+					</div>
+					<span class="cancel-btn color_y">搜索</span>
+				</div>
+				</form>
+			</div>
+			<!--<div class="place_filter_tab">
+				<div class="filter_tab_header flex">
+					<span class="filter_tab_left">全部 <i class="iconfont">&#xe649;</i></span>
+					<span class="filter_tab_right">默认排序 <i class="iconfont">&#xe649;</i></span>
+				</div>
+				<div class="filter_tab_content">
+					<ul class="outerblock filter_tab_con tab_hide">
+						<li><a href="#this">龙华新区</a></li>
+						<li><a href="#this">龙华新区2</a></li>
+						<li><a href="#this">龙华新区3</a></li>
+					</ul>
+					<ul class="outerblock filter_tab_con" style="display: none;">
+						<li><a href="#this">综合</a></li>
+						<li><a href="#this">价格</a></li>
+						<li><a href="#this">智能</a></li>
+					</ul>
+				</div>
+			</div>-->
+			<div class="find_place_list" id="choosePlace">
+				<ul class="outerblock">
+					<li>
+						<div class="items-block flex flex_justify">
+							<div class="l_left flex  maxwid70 choose" data-type='1'>
+								<span class="radio-btn iconfont">&#xe635;</span>
+								<h3 class="place-choose-text">
+									<div class="place_name">美悦高级西餐厅</div>
+									<div class="color_gray place_address">华侨城华西路游乐园B座907华侨城华西路游乐园B座907华侨城华西路游乐园B座907</div>
+									<div class="commend">
+										<i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_gray iconfont">&#xe62a;</i>
+									</div>
+								</h3>
+							</div>
+							<div class="l_right">
+								<span class="con_price color_y">￥ <i class="lagernum">20</i> /人</span>
+								<a href="#this" class="button btn_dark con_detail">查看详情</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="items-block flex flex_justify">
+							<div class="l_left flex  maxwid70" data-type='0'>
+								<span class="radio-btn iconfont">&#xe635;</span>
+								<h3 class="place-choose-text">
+									<div class="place_name">美悦高级西餐厅</div>
+									<div class="color_gray place_address">华侨城华西路游乐园B座907</div>
+									<div class="commend">
+										<i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_gray iconfont">&#xe62a;</i>
+									</div>
+								</h3>
+							</div>
+							<div class="l_right">
+								<span class="con_price color_y">￥ <i class="lagernum">200</i> /人</span>
+								<a href="#this" class="button btn_dark con_detail">查看详情</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="items-block flex flex_justify">
+							<div class="l_left flex  maxwid70" data-type='0'>
+								<span class="radio-btn iconfont">&#xe635;</span>
+								<h3 class="place-choose-text">
+									<div class="place_name">【龙华新区·东环一路】美悦高级西餐厅美悦高级西餐厅</div>
+									<div class="color_gray place_address">华侨城华西路游乐园B座907</div>
+									<div class="commend">
+										<i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_gray iconfont">&#xe62a;</i>
+									</div>
+								</h3>
+							</div>
+							<div class="l_right">
+								<span class="con_price color_y">￥ <i class="lagernum">200</i> /人</span>
+								<a href="#this" class="button btn_dark con_detail">查看详情</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$('#choosePlace .l_left').on('tap',function(){
+				var data = $(this).data('type');
+				var $all = $('#choosePlace .l_left');
+				console.log(data);
+				switch (data){
+					case '1':
+						$(this).removeClass('choose');
+						$(this).attr('data-type','0');
+						break;
+					case '0':
+						$all.removeClass('choose');
+						$all.attr('data-type','0');
+						$(this).addClass('choose');
+						$(this).attr('data-type','1');
+						break;
+					default:
+						break;
+				}
+			})
+		</script>
+	</body>
+</html>

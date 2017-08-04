@@ -1,0 +1,4 @@
+/tmp/*
+/logs/*
+/.idea/*
+/webroot/cache

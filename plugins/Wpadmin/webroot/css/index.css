@@ -1,0 +1,89 @@
+.h30{height:30px;line-height:30px;color:#333;background: #e1e1e1;margin-bottom:20px;text-indent: 10px;}
+
+.bx{box-shadow: 0,0,1px rgba(0,0,0,.8);}
+.databox,.datacontainer{height:60px;border:1px #e1e1e1 solid;border-radius: 3px;margin-bottom:20px;min-width: 130px;box-shadow: 0 0 1px rgba(0,0,0,0.3);}
+.datacontainer{height:auto;}
+.ht{height:58px;line-height: 58px;}
+.radius-bordered{border-radius: 3px; background-clip: padding-box;}
+.bg-white{background-color: #fff !important;}
+.databox-left {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0;
+    width: 60px;
+    /*height: 58px;
+   line-height: 58px;*/
+    color: #fff;
+    font-size:14px;
+    border-radius: 3px 0 0 3px;
+    font-weight:400;
+}
+.bg-themesecondary {
+    background-color: #fb6e52 !important;
+}
+.cosecondart{color:#fb6e52;}
+.bg-themethirdcolor {
+    background-color: #ffce55 !important;
+}
+.cosecondar{color:#ffce55;}
+.bg-themeprimary {
+    background-color: #2dc3e8 !important;
+}
+.coseconda{color:#2dc3e8;}
+.bg-palegreen {
+    background-color: #a0d468 !important;
+}
+.cosecond{color:#a0d468;}
+.databox-right,.dright {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    -lh-property: 0;
+    width: -webkit-calc(100% - 65px);
+    width: -moz-calc(100% - 65px);
+    width: calc(100% - 65px);
+    height: 65px;
+    color: #555;
+    padding: 5px 10px;
+}
+.dright{width:32%;height:200px;}
+.themesecondary {
+    color: #fb6e52 !important;
+}
+.databox-number {
+    display: block;
+    font-size: 17px;
+    line-height: 26px;
+    margin: 2px;
+    position: relative;
+   
+}
+.darkgray {
+    color: #999 !important;
+}
+.fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.databox .databox-stat {
+    display: inline-block;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    padding: 2px 5px;
+}
+.palegreen {
+    color: #a0d468 !important;
+}
+.pername {margin-top:20px;}
+.pername span{display: block;color:#999;height:30px;border-bottom:1px dashed #ccc;}
+.pername i{display: inline-block;width:6px;height:6px;background:#a0d468;border-radius: 50%;vertical-align: middle;margin-right:10px;}
+.pername em{float:right;}

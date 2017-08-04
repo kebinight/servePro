@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+		<title>滑块</title>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/loopScroll.js" type="text/javascript" charset="utf-8"></script>
+		<style type='text/css'>
+		body{font-size:14px;color:#303030;font-family: 'STHeiti','Microsoft YaHei',Helvetica,Arial,sans-serif;background: #ccc;}
+		.box{margin-top:100px;}
+		.range {position: relative;width: 200px;height: 8px;font-size: 0;line-height: 0;background: #fff;border-radius: 10px;background: #fff;}
+		.meaBox {position: absolute;left:0;right:0;height: 8px;background: #EAB96A;top:0;bottom:0;margin:auto;}
+		.mea{position: absolute;width: 16px;height: 16px;border-radius: 50%;background: #fff;top:-4px;box-shadow: 0 1px 1px rgba(0,0,0,.2);}
+		.flex{display: -webkit-box;display: box;-webkit-box-align: center;-webkit-box-pack: start;}
+		</style>
+	</head>
+	<body>
+		<div class="box flex clearfix">
+			<span>身高（cm）</span>
+			<div id='age' class="range">
+				<div class='meaBox'></div>
+				<div data-bar="left" class='mea' style="left: 0"></div>
+				<div data-bar="right" class='mea' style="right: 0"></div>
+			</div>
+		</div>
+
+	<script>
+		// 入口函数
+		var age = new ranger({dom:$('#age'), range:[18, 40]});
+	</script>
+	</body>
+
+</html>

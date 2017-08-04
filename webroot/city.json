@@ -1,0 +1,2781 @@
+[
+    {
+        "name": "北京",
+        "id": 2,
+        "pid": 1,
+        "children": [
+            {
+                "name": "北京",
+                "id": 52,
+                "pid": 2,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "安徽",
+        "id": 3,
+        "pid": 1,
+        "children": [
+            {
+                "name": "安庆",
+                "id": 36,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "蚌埠",
+                "id": 37,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "巢湖",
+                "id": 38,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "池州",
+                "id": 39,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "滁州",
+                "id": 40,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "阜阳",
+                "id": 41,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "淮北",
+                "id": 42,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "淮南",
+                "id": 43,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "黄山",
+                "id": 44,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "六安",
+                "id": 45,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "马鞍山",
+                "id": 46,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "宿州",
+                "id": 47,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "铜陵",
+                "id": 48,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "芜湖",
+                "id": 49,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "宣城",
+                "id": 50,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "亳州",
+                "id": 51,
+                "pid": 3,
+                "children": [
+                ]
+            },
+            {
+                "name": "合肥",
+                "id": 3401,
+                "pid": 3,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "福建",
+        "id": 4,
+        "pid": 1,
+        "children": [
+            {
+                "name": "福州",
+                "id": 53,
+                "pid": 4,
+                "children": [
+                ]
+            },
+            {
+                "name": "龙岩",
+                "id": 54,
+                "pid": 4,
+                "children": [
+                ]
+            },
+            {
+                "name": "南平",
+                "id": 55,
+                "pid": 4,
+                "children": [
+                ]
+            },
+            {
+                "name": "宁德",
+                "id": 56,
+                "pid": 4,
+                "children": [
+                ]
+            },
+            {
+                "name": "莆田",
+                "id": 57,
+                "pid": 4,
+                "children": [
+                ]
+            },
+            {
+                "name": "泉州",
+                "id": 58,
+                "pid": 4,
+                "children": [
+                ]
+            },
+            {
+                "name": "三明",
+                "id": 59,
+                "pid": 4,
+                "children": [
+                ]
+            },
+            {
+                "name": "厦门",
+                "id": 60,
+                "pid": 4,
+                "children": [
+                ]
+            },
+            {
+                "name": "漳州",
+                "id": 61,
+                "pid": 4,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "甘肃",
+        "id": 5,
+        "pid": 1,
+        "children": [
+            {
+                "name": "兰州",
+                "id": 62,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "白银",
+                "id": 63,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "定西",
+                "id": 64,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "甘南",
+                "id": 65,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "嘉峪关",
+                "id": 66,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "金昌",
+                "id": 67,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "酒泉",
+                "id": 68,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "临夏",
+                "id": 69,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "陇南",
+                "id": 70,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "平凉",
+                "id": 71,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "庆阳",
+                "id": 72,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "天水",
+                "id": 73,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "武威",
+                "id": 74,
+                "pid": 5,
+                "children": [
+                ]
+            },
+            {
+                "name": "张掖",
+                "id": 75,
+                "pid": 5,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "广东",
+        "id": 6,
+        "pid": 1,
+        "children": [
+            {
+                "name": "广州",
+                "id": 76,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "深圳",
+                "id": 77,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "潮州",
+                "id": 78,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "东莞",
+                "id": 79,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "佛山",
+                "id": 80,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "河源",
+                "id": 81,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "惠州",
+                "id": 82,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "江门",
+                "id": 83,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "揭阳",
+                "id": 84,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "茂名",
+                "id": 85,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "梅州",
+                "id": 86,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "清远",
+                "id": 87,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "汕头",
+                "id": 88,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "汕尾",
+                "id": 89,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "韶关",
+                "id": 90,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "阳江",
+                "id": 91,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "云浮",
+                "id": 92,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "湛江",
+                "id": 93,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "肇庆",
+                "id": 94,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "中山",
+                "id": 95,
+                "pid": 6,
+                "children": [
+                ]
+            },
+            {
+                "name": "珠海",
+                "id": 96,
+                "pid": 6,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "广西",
+        "id": 7,
+        "pid": 1,
+        "children": [
+            {
+                "name": "南宁",
+                "id": 97,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "桂林",
+                "id": 98,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "百色",
+                "id": 99,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "北海",
+                "id": 100,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "崇左",
+                "id": 101,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "防城港",
+                "id": 102,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "贵港",
+                "id": 103,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "河池",
+                "id": 104,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "贺州",
+                "id": 105,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "来宾",
+                "id": 106,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "柳州",
+                "id": 107,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "钦州",
+                "id": 108,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "梧州",
+                "id": 109,
+                "pid": 7,
+                "children": [
+                ]
+            },
+            {
+                "name": "玉林",
+                "id": 110,
+                "pid": 7,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "贵州",
+        "id": 8,
+        "pid": 1,
+        "children": [
+            {
+                "name": "贵阳",
+                "id": 111,
+                "pid": 8,
+                "children": [
+                ]
+            },
+            {
+                "name": "安顺",
+                "id": 112,
+                "pid": 8,
+                "children": [
+                ]
+            },
+            {
+                "name": "毕节",
+                "id": 113,
+                "pid": 8,
+                "children": [
+                ]
+            },
+            {
+                "name": "六盘水",
+                "id": 114,
+                "pid": 8,
+                "children": [
+                ]
+            },
+            {
+                "name": "黔东南",
+                "id": 115,
+                "pid": 8,
+                "children": [
+                ]
+            },
+            {
+                "name": "黔南",
+                "id": 116,
+                "pid": 8,
+                "children": [
+                ]
+            },
+            {
+                "name": "黔西南",
+                "id": 117,
+                "pid": 8,
+                "children": [
+                ]
+            },
+            {
+                "name": "铜仁",
+                "id": 118,
+                "pid": 8,
+                "children": [
+                ]
+            },
+            {
+                "name": "遵义",
+                "id": 119,
+                "pid": 8,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "海南",
+        "id": 9,
+        "pid": 1,
+        "children": [
+            {
+                "name": "海口",
+                "id": 120,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "三亚",
+                "id": 121,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "白沙",
+                "id": 122,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "保亭",
+                "id": 123,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "昌江",
+                "id": 124,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "澄迈县",
+                "id": 125,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "定安县",
+                "id": 126,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "东方",
+                "id": 127,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "乐东",
+                "id": 128,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "临高县",
+                "id": 129,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "陵水",
+                "id": 130,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "琼海",
+                "id": 131,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "琼中",
+                "id": 132,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "屯昌县",
+                "id": 133,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "万宁",
+                "id": 134,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "文昌",
+                "id": 135,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "五指山",
+                "id": 136,
+                "pid": 9,
+                "children": [
+                ]
+            },
+            {
+                "name": "儋州",
+                "id": 137,
+                "pid": 9,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "河北",
+        "id": 10,
+        "pid": 1,
+        "children": [
+            {
+                "name": "石家庄",
+                "id": 138,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "保定",
+                "id": 139,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "沧州",
+                "id": 140,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "承德",
+                "id": 141,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "邯郸",
+                "id": 142,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "衡水",
+                "id": 143,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "廊坊",
+                "id": 144,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "秦皇岛",
+                "id": 145,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "唐山",
+                "id": 146,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "邢台",
+                "id": 147,
+                "pid": 10,
+                "children": [
+                ]
+            },
+            {
+                "name": "张家口",
+                "id": 148,
+                "pid": 10,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "河南",
+        "id": 11,
+        "pid": 1,
+        "children": [
+            {
+                "name": "郑州",
+                "id": 149,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "洛阳",
+                "id": 150,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "开封",
+                "id": 151,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "安阳",
+                "id": 152,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "鹤壁",
+                "id": 153,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "济源",
+                "id": 154,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "焦作",
+                "id": 155,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "南阳",
+                "id": 156,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "平顶山",
+                "id": 157,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "三门峡",
+                "id": 158,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "商丘",
+                "id": 159,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "新乡",
+                "id": 160,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "信阳",
+                "id": 161,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "许昌",
+                "id": 162,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "周口",
+                "id": 163,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "驻马店",
+                "id": 164,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "漯河",
+                "id": 165,
+                "pid": 11,
+                "children": [
+                ]
+            },
+            {
+                "name": "濮阳",
+                "id": 166,
+                "pid": 11,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "黑龙江",
+        "id": 12,
+        "pid": 1,
+        "children": [
+            {
+                "name": "哈尔滨",
+                "id": 167,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "大庆",
+                "id": 168,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "大兴安岭",
+                "id": 169,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "鹤岗",
+                "id": 170,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "黑河",
+                "id": 171,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "鸡西",
+                "id": 172,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "佳木斯",
+                "id": 173,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "牡丹江",
+                "id": 174,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "七台河",
+                "id": 175,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "齐齐哈尔",
+                "id": 176,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "双鸭山",
+                "id": 177,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "绥化",
+                "id": 178,
+                "pid": 12,
+                "children": [
+                ]
+            },
+            {
+                "name": "伊春",
+                "id": 179,
+                "pid": 12,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "湖北",
+        "id": 13,
+        "pid": 1,
+        "children": [
+            {
+                "name": "武汉",
+                "id": 180,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "仙桃",
+                "id": 181,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "鄂州",
+                "id": 182,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "黄冈",
+                "id": 183,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "黄石",
+                "id": 184,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "荆门",
+                "id": 185,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "荆州",
+                "id": 186,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "潜江",
+                "id": 187,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "神农架林区",
+                "id": 188,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "十堰",
+                "id": 189,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "随州",
+                "id": 190,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "天门",
+                "id": 191,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "咸宁",
+                "id": 192,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "襄樊",
+                "id": 193,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "孝感",
+                "id": 194,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "宜昌",
+                "id": 195,
+                "pid": 13,
+                "children": [
+                ]
+            },
+            {
+                "name": "恩施",
+                "id": 196,
+                "pid": 13,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "湖南",
+        "id": 14,
+        "pid": 1,
+        "children": [
+            {
+                "name": "长沙",
+                "id": 197,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "张家界",
+                "id": 198,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "常德",
+                "id": 199,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "郴州",
+                "id": 200,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "衡阳",
+                "id": 201,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "怀化",
+                "id": 202,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "娄底",
+                "id": 203,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "邵阳",
+                "id": 204,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "湘潭",
+                "id": 205,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "湘西",
+                "id": 206,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "益阳",
+                "id": 207,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "永州",
+                "id": 208,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "岳阳",
+                "id": 209,
+                "pid": 14,
+                "children": [
+                ]
+            },
+            {
+                "name": "株洲",
+                "id": 210,
+                "pid": 14,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "吉林",
+        "id": 15,
+        "pid": 1,
+        "children": [
+            {
+                "name": "长春",
+                "id": 211,
+                "pid": 15,
+                "children": [
+                ]
+            },
+            {
+                "name": "吉林",
+                "id": 212,
+                "pid": 15,
+                "children": [
+                ]
+            },
+            {
+                "name": "白城",
+                "id": 213,
+                "pid": 15,
+                "children": [
+                ]
+            },
+            {
+                "name": "白山",
+                "id": 214,
+                "pid": 15,
+                "children": [
+                ]
+            },
+            {
+                "name": "辽源",
+                "id": 215,
+                "pid": 15,
+                "children": [
+                ]
+            },
+            {
+                "name": "四平",
+                "id": 216,
+                "pid": 15,
+                "children": [
+                ]
+            },
+            {
+                "name": "松原",
+                "id": 217,
+                "pid": 15,
+                "children": [
+                ]
+            },
+            {
+                "name": "通化",
+                "id": 218,
+                "pid": 15,
+                "children": [
+                ]
+            },
+            {
+                "name": "延边",
+                "id": 219,
+                "pid": 15,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "江苏",
+        "id": 16,
+        "pid": 1,
+        "children": [
+            {
+                "name": "南京",
+                "id": 220,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "苏州",
+                "id": 221,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "无锡",
+                "id": 222,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "常州",
+                "id": 223,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "淮安",
+                "id": 224,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "连云港",
+                "id": 225,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "南通",
+                "id": 226,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "宿迁",
+                "id": 227,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "泰州",
+                "id": 228,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "徐州",
+                "id": 229,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "盐城",
+                "id": 230,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "扬州",
+                "id": 231,
+                "pid": 16,
+                "children": [
+                ]
+            },
+            {
+                "name": "镇江",
+                "id": 232,
+                "pid": 16,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "江西",
+        "id": 17,
+        "pid": 1,
+        "children": [
+            {
+                "name": "南昌",
+                "id": 233,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "抚州",
+                "id": 234,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "赣州",
+                "id": 235,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "吉安",
+                "id": 236,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "景德镇",
+                "id": 237,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "九江",
+                "id": 238,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "萍乡",
+                "id": 239,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "上饶",
+                "id": 240,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "新余",
+                "id": 241,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "宜春",
+                "id": 242,
+                "pid": 17,
+                "children": [
+                ]
+            },
+            {
+                "name": "鹰潭",
+                "id": 243,
+                "pid": 17,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "辽宁",
+        "id": 18,
+        "pid": 1,
+        "children": [
+            {
+                "name": "沈阳",
+                "id": 244,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "大连",
+                "id": 245,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "鞍山",
+                "id": 246,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "本溪",
+                "id": 247,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "朝阳",
+                "id": 248,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "丹东",
+                "id": 249,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "抚顺",
+                "id": 250,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "阜新",
+                "id": 251,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "葫芦岛",
+                "id": 252,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "锦州",
+                "id": 253,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "辽阳",
+                "id": 254,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "盘锦",
+                "id": 255,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "铁岭",
+                "id": 256,
+                "pid": 18,
+                "children": [
+                ]
+            },
+            {
+                "name": "营口",
+                "id": 257,
+                "pid": 18,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "内蒙古",
+        "id": 19,
+        "pid": 1,
+        "children": [
+            {
+                "name": "呼和浩特",
+                "id": 258,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "阿拉善盟",
+                "id": 259,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "巴彦淖尔盟",
+                "id": 260,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "包头",
+                "id": 261,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "赤峰",
+                "id": 262,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "鄂尔多斯",
+                "id": 263,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "呼伦贝尔",
+                "id": 264,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "通辽",
+                "id": 265,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "乌海",
+                "id": 266,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "乌兰察布市",
+                "id": 267,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "锡林郭勒盟",
+                "id": 268,
+                "pid": 19,
+                "children": [
+                ]
+            },
+            {
+                "name": "兴安盟",
+                "id": 269,
+                "pid": 19,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "宁夏",
+        "id": 20,
+        "pid": 1,
+        "children": [
+            {
+                "name": "银川",
+                "id": 270,
+                "pid": 20,
+                "children": [
+                ]
+            },
+            {
+                "name": "固原",
+                "id": 271,
+                "pid": 20,
+                "children": [
+                ]
+            },
+            {
+                "name": "石嘴山",
+                "id": 272,
+                "pid": 20,
+                "children": [
+                ]
+            },
+            {
+                "name": "吴忠",
+                "id": 273,
+                "pid": 20,
+                "children": [
+                ]
+            },
+            {
+                "name": "中卫",
+                "id": 274,
+                "pid": 20,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "青海",
+        "id": 21,
+        "pid": 1,
+        "children": [
+            {
+                "name": "西宁",
+                "id": 275,
+                "pid": 21,
+                "children": [
+                ]
+            },
+            {
+                "name": "果洛",
+                "id": 276,
+                "pid": 21,
+                "children": [
+                ]
+            },
+            {
+                "name": "海北",
+                "id": 277,
+                "pid": 21,
+                "children": [
+                ]
+            },
+            {
+                "name": "海东",
+                "id": 278,
+                "pid": 21,
+                "children": [
+                ]
+            },
+            {
+                "name": "海南",
+                "id": 279,
+                "pid": 21,
+                "children": [
+                ]
+            },
+            {
+                "name": "海西",
+                "id": 280,
+                "pid": 21,
+                "children": [
+                ]
+            },
+            {
+                "name": "黄南",
+                "id": 281,
+                "pid": 21,
+                "children": [
+                ]
+            },
+            {
+                "name": "玉树",
+                "id": 282,
+                "pid": 21,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "山东",
+        "id": 22,
+        "pid": 1,
+        "children": [
+            {
+                "name": "济南",
+                "id": 283,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "青岛",
+                "id": 284,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "滨州",
+                "id": 285,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "德州",
+                "id": 286,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "东营",
+                "id": 287,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "菏泽",
+                "id": 288,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "济宁",
+                "id": 289,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "莱芜",
+                "id": 290,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "聊城",
+                "id": 291,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "临沂",
+                "id": 292,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "日照",
+                "id": 293,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "泰安",
+                "id": 294,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "威海",
+                "id": 295,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "潍坊",
+                "id": 296,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "烟台",
+                "id": 297,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "枣庄",
+                "id": 298,
+                "pid": 22,
+                "children": [
+                ]
+            },
+            {
+                "name": "淄博",
+                "id": 299,
+                "pid": 22,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "山西",
+        "id": 23,
+        "pid": 1,
+        "children": [
+            {
+                "name": "太原",
+                "id": 300,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "长治",
+                "id": 301,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "大同",
+                "id": 302,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "晋城",
+                "id": 303,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "晋中",
+                "id": 304,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "临汾",
+                "id": 305,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "吕梁",
+                "id": 306,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "朔州",
+                "id": 307,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "忻州",
+                "id": 308,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "阳泉",
+                "id": 309,
+                "pid": 23,
+                "children": [
+                ]
+            },
+            {
+                "name": "运城",
+                "id": 310,
+                "pid": 23,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "陕西",
+        "id": 24,
+        "pid": 1,
+        "children": [
+            {
+                "name": "西安",
+                "id": 311,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "安康",
+                "id": 312,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "宝鸡",
+                "id": 313,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "汉中",
+                "id": 314,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "商洛",
+                "id": 315,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "铜川",
+                "id": 316,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "渭南",
+                "id": 317,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "咸阳",
+                "id": 318,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "延安",
+                "id": 319,
+                "pid": 24,
+                "children": [
+                ]
+            },
+            {
+                "name": "榆林",
+                "id": 320,
+                "pid": 24,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "上海",
+        "id": 25,
+        "pid": 1,
+        "children": [
+            {
+                "name": "上海",
+                "id": 321,
+                "pid": 25,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "四川",
+        "id": 26,
+        "pid": 1,
+        "children": [
+            {
+                "name": "成都",
+                "id": 322,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "绵阳",
+                "id": 323,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "阿坝",
+                "id": 324,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "巴中",
+                "id": 325,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "达州",
+                "id": 326,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "德阳",
+                "id": 327,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "甘孜",
+                "id": 328,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "广安",
+                "id": 329,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "广元",
+                "id": 330,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "乐山",
+                "id": 331,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "凉山",
+                "id": 332,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "眉山",
+                "id": 333,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "南充",
+                "id": 334,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "内江",
+                "id": 335,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "攀枝花",
+                "id": 336,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "遂宁",
+                "id": 337,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "雅安",
+                "id": 338,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "宜宾",
+                "id": 339,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "资阳",
+                "id": 340,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "自贡",
+                "id": 341,
+                "pid": 26,
+                "children": [
+                ]
+            },
+            {
+                "name": "泸州",
+                "id": 342,
+                "pid": 26,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "天津",
+        "id": 27,
+        "pid": 1,
+        "children": [
+            {
+                "name": "天津",
+                "id": 343,
+                "pid": 27,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "西藏",
+        "id": 28,
+        "pid": 1,
+        "children": [
+            {
+                "name": "拉萨",
+                "id": 344,
+                "pid": 28,
+                "children": [
+                ]
+            },
+            {
+                "name": "阿里",
+                "id": 345,
+                "pid": 28,
+                "children": [
+                ]
+            },
+            {
+                "name": "昌都",
+                "id": 346,
+                "pid": 28,
+                "children": [
+                ]
+            },
+            {
+                "name": "林芝",
+                "id": 347,
+                "pid": 28,
+                "children": [
+                ]
+            },
+            {
+                "name": "那曲",
+                "id": 348,
+                "pid": 28,
+                "children": [
+                ]
+            },
+            {
+                "name": "日喀则",
+                "id": 349,
+                "pid": 28,
+                "children": [
+                ]
+            },
+            {
+                "name": "山南",
+                "id": 350,
+                "pid": 28,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "新疆",
+        "id": 29,
+        "pid": 1,
+        "children": [
+            {
+                "name": "乌鲁木齐",
+                "id": 351,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "阿克苏",
+                "id": 352,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "阿拉尔",
+                "id": 353,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "巴音郭楞",
+                "id": 354,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "博尔塔拉",
+                "id": 355,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "昌吉",
+                "id": 356,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "哈密",
+                "id": 357,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "和田",
+                "id": 358,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "喀什",
+                "id": 359,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "克拉玛依",
+                "id": 360,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "克孜勒苏",
+                "id": 361,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "石河子",
+                "id": 362,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "图木舒克",
+                "id": 363,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "吐鲁番",
+                "id": 364,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "五家渠",
+                "id": 365,
+                "pid": 29,
+                "children": [
+                ]
+            },
+            {
+                "name": "伊犁",
+                "id": 366,
+                "pid": 29,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "云南",
+        "id": 30,
+        "pid": 1,
+        "children": [
+            {
+                "name": "昆明",
+                "id": 367,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "怒江",
+                "id": 368,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "普洱",
+                "id": 369,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "丽江",
+                "id": 370,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "保山",
+                "id": 371,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "楚雄",
+                "id": 372,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "大理",
+                "id": 373,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "德宏",
+                "id": 374,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "迪庆",
+                "id": 375,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "红河",
+                "id": 376,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "临沧",
+                "id": 377,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "曲靖",
+                "id": 378,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "文山",
+                "id": 379,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "西双版纳",
+                "id": 380,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "玉溪",
+                "id": 381,
+                "pid": 30,
+                "children": [
+                ]
+            },
+            {
+                "name": "昭通",
+                "id": 382,
+                "pid": 30,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "浙江",
+        "id": 31,
+        "pid": 1,
+        "children": [
+            {
+                "name": "杭州",
+                "id": 383,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "湖州",
+                "id": 384,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "嘉兴",
+                "id": 385,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "金华",
+                "id": 386,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "丽水",
+                "id": 387,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "宁波",
+                "id": 388,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "绍兴",
+                "id": 389,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "台州",
+                "id": 390,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "温州",
+                "id": 391,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "舟山",
+                "id": 392,
+                "pid": 31,
+                "children": [
+                ]
+            },
+            {
+                "name": "衢州",
+                "id": 393,
+                "pid": 31,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "重庆",
+        "id": 32,
+        "pid": 1,
+        "children": [
+            {
+                "name": "重庆",
+                "id": 394,
+                "pid": 32,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "香港",
+        "id": 33,
+        "pid": 1,
+        "children": [
+            {
+                "name": "香港",
+                "id": 395,
+                "pid": 33,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "澳门",
+        "id": 34,
+        "pid": 1,
+        "children": [
+            {
+                "name": "澳门",
+                "id": 396,
+                "pid": 34,
+                "children": [
+                ]
+            }
+        ]
+    },
+    {
+        "name": "台湾",
+        "id": 35,
+        "pid": 1,
+        "children": [
+            {
+                "name": "台湾",
+                "id": 397,
+                "pid": 35,
+                "children": [
+                ]
+            }
+        ]
+    }
+]

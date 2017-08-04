@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>美动官网-合作</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="icon" href="../image/favio.ico" type="image/x-icon">
+		<script src="../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="header-container detail-page">
+			<div class="header">
+				<div class="wraper clearfix">
+					<div class="logo fl"><h1><a href="#this"><img src="../image/logo1.png"/></a></h1></div>
+					<div class="nav fr">
+						<ul class="list-line clearfix">
+							<li><a href="index.html">首页</a></li>
+							<li ><a href="product.html">产品</a></li>
+							<li><a href="activity.html">活动</a></li>
+							<li><a href="us.html">我们</a></li>
+							<li class="active"><a href="cooper.html">合作</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wraper">
+			<div class="tab-box mt40">
+				<!--关于我们-->
+				<div class="cooper-box">
+					<div class="section-items">
+						<div class="section-items-con list-line">
+							<dl>
+								<dt>
+									<img src="../image/cooper-01.jpg"/>
+								</dt>
+								<dd class="navtitle"><h3 class="dd-title">战略合作</h3></dd>
+								<dd>
+									<p class="dd-des">联系人：林先生<br />
+邮箱：linzh@beauty-engine.com
+</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<img src="../image/cooper-02.jpg"/>
+								</dt>
+								<dd class="navtitle"><h3>活动及广告业务</h3></dd>
+								<dd>
+									<p>联系人：匡先生<br />
+邮箱：kuang@beauty-engine.com
+</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<img src="../image/cooper-03.jpg"/>
+								</dt>
+								<dd class="navtitle"><h3>媒体专访</h3></dd>
+								<dd>
+									<p>联系人：陈小姐<br />
+邮箱：media@beauty-engine.com
+</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="support-box mt40">
+				<h3>客户支持</h3>
+				<p>为确保及时解决您的问题，建议您通过客户端提交意见反馈，我们将会在24小时之内尽快受理您的问题。</p>
+				<p>1. 客服热线：0755-33580266（服务时间 9:30-18:30）</p>
+				<p>2. 在美动官方微信留言 @约见吧约会（Wechat ID：meiyue200)</p>
+			</div>
+			<div class="maps">
+				<img src="../image/maps.jpg"/>
+			</div>
+		</div>
+			<div class="footer mt50">
+			<div class="wraper">
+				<div class="footer-box clearfix">
+					<div class="left-footer fl">
+						<h1 class="footer-logo"><img src="../image/footer-logo.png"/></h1>
+						<div class="nav-menu">
+							<h3 class="slogin">中国首家互联网美女高端社交与明星孵化平台</h3>
+							<ul class="list-line">
+								<li><a href="index.html">首页Home</a> | </li>
+								<li><a href="activity.html">活动 Activity</a> | </li>
+								<li><a href="us.html">我们 About Us</a> | </li>
+								<li><a href="cooper.html">合作 Cooperation</a></li>
+							</ul>
+						</div>
+						<div class="company-info">
+							<p>地址：深圳市龙华新区民冶大道1083号展滔科技大厦C座一楼</p>
+							<p>电话：0755-33580266</p>
+							<p>Email：contact@beauty-engine.com</p>
+							<p>Copyright © 2016-2017 www.beauty-engine.com All Rights Reserved</p>
+							<p>全部信息 美动控股 版权所有 | 粤ICP备16105107号 | <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/3789e9cef5c3444da64230ab8a5c7c41" target="_blank" style="position: relative;">粤网文〔2017〕4503-926号 <img src="image/foot_logo.png" class="company_logo"></a></p>
+						</div>
+					</div>
+					<div class="right-footer fr  pos-relative">
+						<ul class="list-line link-footer">
+							<li><a href="#this"><img src="../image/andrio.png"/></a></li>
+							<li><a href="#this"><img src="../image/apple.png"/></a></li>
+							<li><a href="#this"><img src="../image/sina.png"/></a></li>
+							<li id="focus"><a href="javascript:void(0);"><img src="../image/wx.png"/></a></li>
+						</ul>
+						<div class="focus-wx" id="imgWX">
+								<img src="../image/focus-wx.png"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$('#focus').on('click',function(e){
+				e.stopPropagation();
+				$('.focus-wx').toggleClass('show');
+			})
+			$('html,body').on('click',function(){
+				if($('.focus-wx').hasClass('show')){
+					$('.focus-wx').removeClass('show');
+				}
+			})
+		</script>
+	</body>
+</html>

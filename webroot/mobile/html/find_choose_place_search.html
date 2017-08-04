@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-搜索约会地点</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="wraper">
+			<div class="search_place_header inner">
+				<div class="search-box flex flex_justify">
+					<div class="search-btn"><i class="iconfont ico">&#xe689;</i><input type="text" placeholder="" value="万" /></div>
+					<span class="cancel-btn color_y">取消</span>
+				</div>
+			</div>
+			<div class="search-link">
+				<ul>
+					<li class="flex">
+						<span class="iconfont">&#xe689;</span>
+						<div class="search-name">万象城</div>
+						
+					</li>
+					<li class="flex">
+						<span class="iconfont">&#xe689;</span>
+						<div class="search-name">万达广场</div>
+					</li>
+				</ul>
+			</div>
+			<div class="find_place_list mt40" id="choosePlace">
+				<ul class="outerblock">
+					<li>
+						<div class="items-block flex flex_justify">
+							<div class="l_left flex  maxwid70 choose" data-type='1'>
+								<span class="radio-btn iconfont">&#xe635;</span>
+								<h3 class="place-choose-text">
+									<div class="place_name">万达广场</div>
+									<div class="color_gray place_address">华侨城华西路游乐园B座907</div>
+									<div class="commend">
+										<i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_gray iconfont">&#xe62a;</i>
+									</div>
+								</h3>
+							</div>
+							<div class="l_right">
+								<span class="con_price color_y">￥ <i class="lagernum">20</i> /人</span>
+								<a href="#this" class="button btn_dark con_detail">查看详情</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="items-block flex flex_justify">
+							<div class="l_left flex  maxwid70" data-type='0'>
+								<span class="radio-btn iconfont">&#xe635;</span>
+								<h3 class="place-choose-text">
+									<div class="place_name">万象城</div>
+									<div class="color_gray place_address">万象城华西路游乐园B座907</div>
+									<div class="commend">
+										<i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_gray iconfont">&#xe62a;</i>
+									</div>
+								</h3>
+							</div>
+							<div class="l_right">
+								<span class="con_price color_y">￥ <i class="lagernum">200</i> /人</span>
+								<a href="#this" class="button btn_dark con_detail">查看详情</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="items-block flex flex_justify">
+							<div class="l_left flex  maxwid70" data-type='0'>
+								<span class="radio-btn iconfont">&#xe635;</span>
+								<h3 class="place-choose-text">
+									<div class="place_name">【龙华新区·东环一路】万宁美悦高级西餐厅美悦高级西餐厅</div>
+									<div class="color_gray place_address">华侨城华西路游乐园B座907</div>
+									<div class="commend">
+										<i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_y iconfont">&#xe62a;</i><i class="color_gray iconfont">&#xe62a;</i>
+									</div>
+								</h3>
+							</div>
+							<div class="l_right">
+								<span class="con_price color_y">￥ <i class="lagernum">200</i> /人</span>
+								<a href="#this" class="button btn_dark con_detail">查看详情</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+				<p class="mt60 aligncenter color_gray">没有搜到相关的地址，可以<a href="#this" class="color_y">手动输入</a></p>
+				<div class="serch-history mt40">
+					<div class="title flex flex_justify inner">
+						<h3 class="commontitle">搜索历史</h3>
+						<span class="color_friends">清除</span>
+					</div>
+					<div class="con bgff">
+						<ul>
+							<li class="flex flex_justify">
+								<div class="search-name">万象城</div>
+								<span class="iconfont">&#xe6a1;</span>
+							</li>
+							<li class="flex flex_justify">
+								<div class="search-name">万达广场</div>
+								<span class="iconfont">&#xe6a1;</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+		</div>
+		<script type="text/javascript">
+			$('#choosePlace .l_left').on('tap',function(){
+				var data = $(this).data('type');
+				var $all = $('#choosePlace .l_left');
+				console.log(data);
+				switch (data){
+					case '1':
+						$(this).removeClass('choose');
+						$(this).attr('data-type','0');
+						break;
+					case '0':
+						$all.removeClass('choose');
+						$all.attr('data-type','0');
+						$(this).addClass('choose');
+						$(this).attr('data-type','1');
+						break;
+					default:
+						break;
+				}
+			})
+		</script>
+	</body>
+</html>

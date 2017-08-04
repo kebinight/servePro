@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-约会详情</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<span class="iconfont toback">&#xe602;</span>
+				<h1>约会详情</h1>
+				<!--<span class="r_btn">编辑</span>-->
+			</div>
+		</header>
+		<div class="wraper">
+			<div class="find_date_detail">
+				<div class="date_top_con flex inner">
+					<span class="place"><img src="../images/date_place.jpg"/></span>
+					<h3 class="date_top_con_right">
+						<span class="date_ability">[约吃饭]</span>
+						<span class="date_guest">范冰冰 <i class="iconfont color_y">&#xe61d;</i><i class="age color_y">23</i></span>
+						<span class="date_much"><i>300</i> 美币/小时</span>
+					</h3>
+				</div>
+				<div class="date_des change-date-detail mt20">
+					<ul class="outerblock bgff">
+						<li>
+							<h3 class="commontitle pt10">约会说明</h3>
+							<div class="con date_keyword">
+								<p>如果你也喜爱美食，我们就一起约吧，毕竟我那么可爱又吃不胖~一起渡过个愉快的下午啊~</p>
+							</div>
+						</li>
+						<li class="flex">
+							<h3 class="commontitle">我的标签</h3>
+							<div class="con con_mark flex">
+								<a href="#this">大大长腿大长腿长腿</a>
+								<a href="#this">不喝酒</a>
+								<a href="#this">大长腿</a>
+								<a href="#this">不喝酒</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="date_des mt20">
+					<!--<h3 class="commontitle inner">邀约时间与地点</h3>-->
+					<div class="con com_choose_time">
+							<ul class="outerblock">
+								<li>
+									<div class="date_time flex flex_justify">
+										<span>时间</span>
+										<div>
+											<span class="color_y">09-28 21:00~22:00</span>
+											<i class="iconfont r_con">&#xe605;</i>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="date_time flex flex_justify">
+										<span>地点</span>
+										<div>
+											<span class="color_gray">请选择</span>
+											<i class="iconfont r_con">&#xe605;</i>
+										</div>
+									</div>
+								</li>
+							</ul>
+					</div>
+				</div>
+					<div class="date_des mt20">
+						<!--<h3 class="commontitle inner">总费用</h3>-->
+						<div class="con">
+								<ul class="outerblock">
+									<li>
+										<div class="date_time flex flex_justify">
+											<span>共<i class="color_y">3</i>小时</span>
+											<div>
+												<span>合计：<i class="lagernum color_y">900</i><i class="color_y">美币</i></span>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="date_time  flex flex_justify">
+											<span>预约金</span>
+											<div>
+												<span>900*20%=180 美币</span>
+											</div>
+										</div>
+									</li>
+								</ul>
+						</div>
+						
+				</div>
+				<div class="date_des mt20">
+					<!--<h3 class="commontitle inner">支付方式</h3>-->
+					<div class="con inner">
+						<div class="date_time  flex flex_justify">
+							<span>我的钱包</span>
+							<div class="color_y">90 美币</div>
+						</div>
+					</div>
+					<p class="commontips mt10 inner">* 预约金是您对对方的许诺,占总费用的20%;若对方同意后，您爽单，则预约金归对方所有；若对方不同意，则预约金全数退还。</p>
+				</div>
+			</div>
+		</div>
+		<div style="height:1.4rem;"></div>
+		<div class="bottomblock">
+			<div class="flex flex_end">
+				<span class="total">预约金：<i class="color_y">￥</i> <span class="color_y"><i class="color_y lagernum">180 </i>美币</span></span>
+				<a href="javascript:void(0);" class="nowpay">立即支付</a>
+			</div>
+		</div>
+		<!--支付弹窗-->
+		<div class="raper show" hidden>
+			<div class="choose-date-place">
+				<ul>
+					<li><a href="#this">选择地点</a></li>
+					<li><a href="#this">自定义地点</a></li>
+				</ul>
+				<ul class="mt20">
+					<li class="cancel"><a href="#this">取消</a></li>
+				<ul>
+			</div>
+		</div>
+		<div class="pay-shadow" >
+			<div class="pay-containner flex flex_center fullwraper">
+				<div class="pay-containner-con">
+					<div class="title">
+						<i class="iconfont closed">&#xe653;</i>
+						<h3>请设置与输入支付密码</h3>
+					</div>
+					<div class="con"><i>5000</i>美币</div>
+					<div class="pay-footer">
+						<div class="pay-content">
+							<input type="tel" maxlength="6" class="pwd-input" id="pwd-input" unselectable="on" /> 
+							<div class="pwd-box flex flex_justify">  
+						        <input type="password" readonly="readonly"/>  
+						        <input type="password" readonly="readonly"/>  
+						        <input type="password" readonly="readonly"/>  
+						        <input type="password" readonly="readonly"/>  
+						        <input type="password" readonly="readonly"/>  
+						        <input type="password" readonly="readonly"/>  
+	    					</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>  
+			var $input = $(".pwd-box input");  
+			            $("#pwd-input").on("input", function() {  
+			                var pwd = $(this).val().trim();  
+			                for (var i = 0, len = pwd.length; i < len; i++) {  
+			                    $input.eq("" + i + "").val(pwd[i]);  
+			                }  
+			                $input.each(function() {  
+			                    var index = $(this).index();  
+			                    if (index >= len) {  
+			                        $(this).val("");  
+			                    }  
+			                });  
+			                if (len == 6) {  
+			                }  
+			            });  
+			</script>  
+	</body>
+</html>

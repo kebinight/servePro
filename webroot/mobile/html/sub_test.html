@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, user-scalable=0" /><!--设置视窗宽为设备宽度，默认不缩放，不允许用户缩放-->
+    <meta name="apple-mobile-web-app-capable" content="yes" /><!--在iOS中 隐藏工具栏和菜单栏-->
+    <meta name="format-detection" content="email=no" /><!--忽略电话号码和邮箱识别-->
+    <title>SUB TEST API</title>
+    <script src="/mobile/js/jsapi.js"></script>
+    <script src="/mobile/js/zepto.min.js"></script>
+</head>
+<body>
+<style>
+
+    dl, dt, dd, a, ul, li, ol {
+        border: 1px solid #999;
+        list-style: outside none none;
+        padding: 5px;
+    }
+</style>
+
+<h1>测试子页面</h1>
+
+</body>
+</html>
+
+<script>
+    LEMON.sys.setTopRight('确定')
+//    LEMON.event.addBtn({'btnText':'发送','cb':'func'});'
+    window.onTopRight = function(){
+        alert('被点击了');
+    }
+</script>
+
+
+

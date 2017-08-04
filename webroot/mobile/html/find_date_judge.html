@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-发表评价</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+	<!--约Ta弹出层-->
+	<div class="raper hide flex flex_center">
+		<!--约Ta弹出层-->
+		<div class="popup" style="display: block;">
+			<div class="popup_con">
+				<p class="aligncenter">投诉电话</p>
+				<h3 class="aligncenter lagernum">888888</h3>
+			</div>
+			<div class="popup_footer flex flex_justify">
+				<span class="footerbtn color_y">呼叫</span>
+				<span class="footerbtn gopay">取消</span>
+			</div>
+		</div>
+	</div>
+		<header>
+			<div class="header">
+				<i class="iconfont toback">&#xe602;</i>
+				<h1>发表评价</h1>
+			</div>
+		</header>
+		<div class="wraper">
+			<div class="judge_container">
+				<div class="avatar">
+					<img src="../images/avatar.jpg"/>
+				</div>
+				<h3 class="date_title">[约吃饭] 范冰冰</h3>
+				<ul class="jude_list" id="judeBox">
+					<li id="ontime">
+						<span>准时赴约</span>
+						<i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" data-type='0'>&#xe62a;</i>
+					</li>
+					<li id="similar">
+						<span>相符程度</span>
+						<i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" data-type='0'>&#xe62a;</i>
+					</li>
+					<li id="attitude">
+						<span>服务态度</span>
+						<i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" >&#xe62a;</i><i class="iconfont" data-type='0'>&#xe62a;</i>
+					</li>
+				</ul>
+				<div class="submit_jude">
+					<h3>我要评论</h3>
+					<textarea name="" rows="" cols="">请在此输入评论内容</textarea>
+					<a class="commontips alignright" href="tel:888888">我要投诉</a>
+				</div>
+			</div>
+		</div>
+		<a href="#this" class="identify_footer_potion">提交评价</a>
+		<script type="text/javascript">
+		judge('ontime');
+		judge('attitude');
+		judge('similar');
+		function judge(parent,num){
+			var parentNode = $('#'+parent);
+			var liList = parentNode.find('i');
+			liList.each(function(index){
+				$(this).on('tap',function(){
+					for(var j=0;j<=index;j++){
+						$(liList[j]).addClass('color_y');
+					}
+					for(var j=index+1;j<liList.length;j++){
+						$(liList[j]).addClass('color_gray');
+					}
+					num=index+1;
+					console.log("您得了"+(num)+"颗星");
+				})
+				for(var j=num;j<=liList.length;j++){
+					$(liList[j]).addClass('color_gray');
+				}
+			})
+			
+			
+		}
+			
+			
+		</script>
+	</body>
+</html>

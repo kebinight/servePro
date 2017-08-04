@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>约见吧-发现主页</title>
+    <link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/loopScroll.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<header>
+    <div class="header">
+        <i class="iconfont toback">&#xe602;</i>
+        <h1>礼物</h1>
+        <span class="r_btn">赠送</span>
+    </div>
+</header>
+<div class="wraper">
+    <div class="judge_container allgift_container">
+        <div class="avatar">
+            <img src="../images/avatar.jpg"/>
+        </div>
+        <h3 class="date_title">范冰冰</h3>
+    </div>
+</div>
+<div class="allgift">
+    <ul class="" id="allgift">
+        <li>
+            <div class="items active">
+                <div class="gift_pic">
+                    <img src="../images/gift01.png"/>
+                </div>
+                <div class="bottomtext"><i>5</i> <span class="ico"><img src="../images/cash01.png" alt=""/></span></div>
+                <span class="iconfont choose">&#xe64c;</span>
+            </div>
+            <div class="items">
+                <div class="gift_pic">
+                    <img src="../images/gift04.png" style="width:100%"/>
+                </div>
+                <div class="bottomtext"><i>20</i> <span class="ico"><img src="../images/cash01.png" alt=""/></span>
+                </div>
+                <span class="iconfont choose">&#xe64c;</span>
+            </div>
+            <div class="items">
+                <div class="gift_pic">
+                    <img src="../images/gift05.png"/>
+                </div>
+                <div class="bottomtext"><i>52</i> <span class="ico"><img src="../images/cash01.png" alt=""/></span>
+                </div>
+                <span class="iconfont choose">&#xe64c;</span>
+            </div>
+            <div class="items">
+                <div class="gift_pic">
+                    <img src="../images/gift03.png"/>
+                </div>
+                <div class="bottomtext"><i>131.4</i> <span class="ico"><img src="../images/cash01.png" alt=""/></span>
+                </div>
+                <span class="iconfont choose">&#xe64c;</span>
+            </div>
+            <div class="items">
+                <div class="gift_pic">
+                    <img src="../images/gift02.png"/>
+                </div>
+                <div class="bottomtext"><i>210</i> <span class="ico"><img src="../images/cash01.png" alt=""/></span>
+                </div>
+                <span class="iconfont choose">&#xe64c;</span>
+            </div>
+            <div class="items">
+                <div class="gift_pic">
+                    <img src="../images/gift04.png" style="width:100%;"/>
+                </div>
+                <div class="bottomtext"><i>520</i> <span class="ico"><img src="../images/cash01.png" alt=""/></span>
+                </div>
+                <span class="iconfont choose">&#xe64c;</span>
+            </div>
+            <div class="items">
+                <div class="gift_pic">
+                    <img src="../images/gift02.png"/>
+                </div>
+                <div class="bottomtext"><i>999</i> <span class="ico"><img src="../images/cash01.png" alt=""/></span>
+                </div>
+            </div>
+            <div class="items">
+                <div class="gift_pic">
+                    <img src="../images/gift03.png"/>
+                </div>
+                <div class="bottomtext"><i>5000</i> <span class="ico"><img src="../images/cash01.png" alt=""/></span>
+                </div>
+                <span class="iconfont choose">&#xe64c;</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<a href="login_identify_jump.html" class="identify_footer_potion"><i class="iconfont">&#xe614;</i> 立即赠送</a>
+</body>
+<script type="text/javascript">
+    $('#allgift .items').on('tap', function () {
+        $(this).addClass('active').siblings().removeClass('active');
+    })
+</script>
+</html>

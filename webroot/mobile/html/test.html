@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-设置</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.pagelist{width:200%;backface-visibility:hidden;-webkit-backface-visibility:hidden;-webkit-transform: translateX(0);transform: translateX(0);-webkit-transition: all .3s ease-out;transition: all .3s ease-out;clear:both;}
+			.pagelist .page{width:50%;float:left;}
+			.pagewrap{width:100%;overflow: hidden;}
+			
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<i class="iconfont toback">&#xe602;</i>
+				<h1>设置</h1>
+			</div>
+		</header>
+		<div class="pagewrap">
+			
+		<div class="pagelist" id="page">
+			<div class="wraper page">
+				<div class="account_items">
+					<a class="commonlayer inner mt20 ablock">
+						<div>账号管理</div>
+						<span class="iconfont rcon">&#xe605;</span>
+					</a>
+				</div>
+			
+				<ul class="mt20 outerblock bgff inner">
+					<li>
+						<a class="commonlayer ablock" id="Tips">
+							<div>提醒设置</div>
+							<span class="iconfont rcon">&#xe605;</span>
+						</a>
+					</li>
+					<li>
+						<a class="commonlayer ablock">
+							<div>清除缓存</div>
+							<div class="r_info">
+								<i class="smalldes">12.89M</i>
+								<span class="iconfont rcon">&#xe605;</span>
+							</div>
+						</a>
+					</li>
+				</ul>
+		</div>
+		<div class="wraper page page1">
+			<div class="account_items">
+					<a class="commonlayer inner mt20 ablock">
+						<div>账号管理1</div>
+						<span class="iconfont rcon">&#xe605;</span>
+					</a>
+				</div>
+			
+				<ul class="mt20 outerblock bgff inner">
+					<li>
+						<a class="commonlayer ablock">
+							<div>提醒设置</div>
+							<span class="iconfont rcon">&#xe605;</span>
+						</a>
+					</li>
+					<li>
+						<a class="commonlayer ablock">
+							<div>清除缓存</div>
+							<div class="r_info">
+								<i class="smalldes">12.89M</i>
+								<span class="iconfont rcon">&#xe605;</span>
+							</div>
+						</a>
+					</li>
+				</ul>
+		</div>
+		</div>
+			</div>
+			<script type="text/javascript">
+			var wid = window.screen.width;
+			$('#Tips').on('tap',function(){
+				console.log(1);
+				$('.pagelist').css({'-webkit-transform':'translateX('+(-wid)+'px);','transform':'translateX('+(-wid)+'px);'})
+			})
+			</script>
+	</body>
+</html>

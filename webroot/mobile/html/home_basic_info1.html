@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-我的主页</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<i class="iconfont toback">&#xe602;</i>
+				<h1>基本信息</h1>
+				<span class="r_btn">下一步</span>
+			</div>
+		</header>
+		<div class="wraper">
+			<!--基本信息三步-->
+			<div class="basicinfo-header">
+				<div class="line-box">
+					<div class="info-line flex flex_justify">
+						<div></div>
+						<div></div>
+					</div>
+					<div class="stepnode flex flex_justify">
+						<span class="active"></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="step flex flex_justify">
+						<h3 class="active">第一步</h3>
+						<h3>第二步</h3>
+						<h3>第三步</h3>
+					</div>
+				</div>
+			</div>
+			<div class="identify_img_ifo mt40">
+				<ul class="inner">
+					<li class="clearfix">
+						<span class="fl">头 像</span>
+						<div class="iden_r_box fr">
+							<div class="iden_r_pic">
+								<img src="../images/headpic.png" alt="" />
+							</div>
+							<i class="iconfont potion">&#xe605;</i>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="home_fill_basic_info  mt40">
+				<ul>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info ">
+								<span class="itemsname">昵</span><span class="itemsname">称：</span>
+								<i class="iconfont ico"></i>
+							</div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="请输入昵称" />
+								<i class="iconfont r_icon"></i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info "><span class="itemsname">真</span><span class="itemsname">实</span><span class="itemsname">姓</span><span class="itemsname">名：</span><i class="iconfont ico"></i></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="请输真实姓名" />
+								<i class="iconfont r_icon"></i>
+							</div>
+						</div>
+					</li>
+					<li class="birthdate">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">出</span><span class="itemsname">生</span><span class="itemsname">日</span><span class="itemsname">期：</span></div>
+							<div class="home_list_r_info">
+								<input type="date" placeholder="请输入日期" value="2015-09-24"/>
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li class="start_sign">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">星</span><span class="itemsname">座：</span></div>
+							<div class="home_list_r_info">
+									<select name="start_sign" style="-webkit-appearance: none;">
+										<option value="" selected="selected">选星座</option>
+										<option value="">水瓶座</option>
+										<option value="">白羊座</option>
+										<option value="">金牛座</option>
+										<option value="">双子座</option>
+										<option value="">巨蟹座</option>
+									</select>
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">体</span><span class="itemsname">重：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="您的体重" />&nbsp;<i class="ml10">KG</i><i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info "><span class="itemsname short_name">身</span><span class="itemsname">高：</span><i class="iconfont ico"></i></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="您的身高" />&nbsp;cm
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">三</span><span class="itemsname">围：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="腰围" style="width:30px;" /> | 
+								<input type="text" placeholder="胸围" style="width:30px;" /> | 
+								<input type="text" placeholder="臀围" style="width:30px;" />
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">罩</span><span class="itemsname">杯：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="请输入罩杯" />
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">职</span><span class="itemsname">业：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="请输入职业" />
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname short_name">家</span><span class="itemsname">乡</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="请输入家乡" />
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">所</span><span class="itemsname">在</span><span class="itemsname">地</span><span class="itemsname">区：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="请输入所在地区" />
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li class="emontion">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">情</span><span class="itemsname">感</span><span class="itemsname">状</span><span class="itemsname">态：</span></div>
+							<div class="home_list_r_info">
+								<select name="state">
+									<option value="">单身</option>
+									<option value="">已婚</option>
+									<option value="">离异</option>
+								</select>
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">工</span><span class="itemsname">作</span><span class="itemsname">经</span><span class="itemsname">历：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="工作经历" />
+								<i class="iconfont r_icon">&#xe605;</i>
+							</div>
+						</div>
+					</li>
+			</div>
+			</div>
+	</body>
+</html>

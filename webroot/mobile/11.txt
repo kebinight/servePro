@@ -1,0 +1,30 @@
+empty_page.html  空状态说明页
+
+约单页面底部按钮 
+
+取消按钮状态（白底）  identify_dark_potion
+
+
+<a href="login_identify_jump.html" class="identify_dark_potion">查看退款</a>
+
+激活状态  identify_footer_potion
+<a href="login_identify_jump.html" class="identify_footer_potion">立即赴约</a>
+
+两个按钮
+
+<div class="potion_footer flex flex_justify">
+	<span class="footerbtn cancel">取消约单</span>
+	<span class="footerbtn gopay">赴约成功</span>
+</div>
+
+
+立即支付
+<div class="bottomblock">
+  <div class="flex flex_end">
+	<span class="total">预约金：<i class="color_y">￥</i> <span class="color_y"><i class="color_y lagernum">180 </i>美币</span></span>
+	<a href="javascript:void(0);" class="nowpay">立即支付</a>
+  </div>
+</div>
+
+
+

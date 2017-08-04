@@ -1,0 +1,110 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2016-8-3, 20:15:29
+    Author     : Administrator
+*/
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    /*border-bottom: 1px dotted #B3A9A9;*/
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+
+/*.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}*/
+.chat li .chat-body p {
+    margin: 0;
+    color: #151414;
+    border-radius: 5px 5px 15px 5px;
+    line-height: 30px;
+    padding: 10px 10px;
+    display: inline-block;
+    min-height: 30px;
+    /*position: relative;*/
+}
+/*.chat li .chat-body p:before{
+    border-width: 6px;
+    margin-top: -1px;
+}
+.chat li .chat-body p:before,.chat li .chat-body p:after {
+    position: absolute;
+    right: 100%;
+    top: 15px;
+    border: solid transparent 7px;
+    border-right-color: #d2d6de;
+    content: ' ';
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+.chat li.right .chat-body p:before,.chat li.right .chat-body p:after{
+    right: auto;
+    left: 100%;
+    border-right-color: transparent;
+    border-left-color: #7bdd8c;
+}
+.chat li.left .chat-body p:before,.chat li.left .chat-body p:after{
+    border-left-color: #d5dda1;
+}*/
+.chat li.left .chat-body p{
+    background: #d5dda1;
+}
+.chat li.right .chat-body p{
+    background: #7bdd8c;
+}
+
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    /*height: 250px;*/
+}
+
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}

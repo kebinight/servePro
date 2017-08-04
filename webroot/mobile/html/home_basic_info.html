@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-我的主页</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/LArea.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<i class="iconfont toback">&#xe602;</i>
+				<h1>基本信息</h1>
+			</div>
+		</header>
+		<div class="wraper">
+			<div class="home_fill_basic_info">
+				<div class="items_title">
+					<h3>基本资料</h3>
+				</div>
+				<ul>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info required">
+								<span class="itemsname">昵</span><span class="itemsname">称：</span>
+								<i class="iconfont ico"></i>
+							</div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="昵称" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info required"><span class="itemsname">真</span><span class="itemsname">实</span><span class="itemsname">姓</span><span class="itemsname">名：</span><i class="iconfont ico"></i></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="请输真实姓名" />
+							</div>
+						</div>
+					</li>
+					<li class="birthdate right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">出</span><span class="itemsname">生</span><span class="itemsname">日</span><span class="itemsname">期：</span></div>
+							<div class="home_list_r_info">
+								<div class="home_list_r_info">
+								<div class="home-basic-option">
+									<input type="text" placeholder="出生日期" readonly="readonly" />
+									<input type="date"  onchange='tochange(this)'>
+								</div>
+							</div>
+							</div>
+					</li>
+					<li class="right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">体</span><span class="itemsname">重：</span></div>
+							<div class="home_list_r_info">
+								<div class="home-basic-option">
+								<input type="text" placeholder="你的体重" readonly="readonly"/>
+								<select name="" onchange='tochange(this)'>
+									<option value="40-KG">40-KG</option>
+									<option value="40KG">40KG</option>
+									<option value="41KG">41KG</option>
+									<option value="42KG">42KG</option>
+									<option value="43KG">43KG</option>
+									<option value="44KG">44KG</option>
+									<option value="45KG">45KG</option>
+									<option value="46KG">46KG</option>
+									<option value="47KG">47KG</option>
+									<option value="48KG">48KG</option>
+									<option value="49KG">49KG</option>
+									<option value="50KG">50KG</option>
+									<option value="51KG">51KG</option>
+									<option value="52KG">52KG</option>
+									<option value="53KG">53KG</option>
+									<option value="54KG">54KG</option>
+									<option value="55KG">55KG</option>
+									<option value="55+KG">55+KG</option>
+								</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info required"><span class="itemsname short_name">身</span><span class="itemsname">高：</span><i class="iconfont ico"></i></div>
+							<div class="home_list_r_info">
+								<div class="home-basic-option">
+								<input type="text" placeholder="你的身高" readonly="readonly"/>
+								<select name="" onchange='tochange(this)'>
+									<option value="160-CM">160-CM</option>
+									<option value="161CM">161CM</option>
+									<option value="162CM">162CM</option>
+									<option value="163CM">163CM</option>
+									<option value="164CM">164CM</option>
+									<option value="165CM">165CM</option>
+									<option value="166CM">166CM</option>
+									<option value="166CM">167CM</option>
+									<option value="166CM">168CM</option>
+									<option value="166CM">169CM</option>
+									<option value="170CM">170CM</option>
+									<option value="171CM">171CM</option>
+									<option value="172CM">172CM</option>
+									<option value="173CM">173CM</option>
+									<option value="174CM">174CM</option>
+									<option value="175CM">175CM</option>
+									<option value="176CM">176CM</option>
+									<option value="177CM">177CM</option>
+									<option value="178CM">178CM</option>
+									<option value="179CM">179CM</option>
+									<option value="180CM">180+CM</option>
+								</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="bwh right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">三</span><span class="itemsname">围：</span></div>
+							<div class="home_list_r_info flex flex_end">
+								<div class="home-basic-option">
+								<input type="text" placeholder="胸围" readonly="readonly"/>
+								<select name="" onchange='tochange(this)'>
+									<option value="80">80</option>
+									<option value="81">81</option>
+									<option value="82">82</option>
+									<option value="83">83</option>
+									<option value="84">84</option>
+									<option value="85">85</option>
+									<option value="86">86</option>
+									<option value="87">87</option>
+									<option value="88">88</option>
+									<option value="89">89</option>
+									<option value="90+">90+</option>
+								</select>
+								</div>|<div class="home-basic-option">
+								<input type="text" placeholder="腰围" readonly="readonly"/>
+								<select name="" onchange='tochange(this)'>
+									<option value="60">60</option>
+									<option value="61">61</option>
+									<option value="62">62</option>
+									<option value="63">63</option>
+									<option value="64">64</option>
+									<option value="65">65</option>
+									<option value="66">66</option>
+									<option value="67">67</option>
+									<option value="68">68</option>
+									<option value="69">69</option>
+									<option value="70+">70+</option>
+								</select>
+								</div>|<div class="home-basic-option">
+								<input type="text" placeholder="臀围" readonly="readonly"/>
+								<select name="" onchange='tochange(this)'>
+									<option value="80">80</option>
+									<option value="81">81</option>
+									<option value="82">82</option>
+									<option value="83">83</option>
+									<option value="84">84</option>
+									<option value="85">85</option>
+									<option value="86">86</option>
+									<option value="87">87</option>
+									<option value="88">88</option>
+									<option value="89">89</option>
+									<option value="90+">90+</option>
+								</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">星</span><span class="itemsname">座：</span></div>
+							<div class="home_list_r_info">
+								<div class="home-basic-option">
+								<input type="text" placeholder="你的星座" readonly="readonly"/>
+								<select name=""  onchange='tochange(this)'>
+									<option value="水平座" selected="selected">水平座</option>
+									<option value="水瓶座">水瓶座</option>
+									<option value="白羊座">白羊座</option>
+									<option value="金牛座">金牛座</option>
+									<option value="双子座">双子座</option>
+									<option value="巨蟹座">巨蟹座</option>
+								</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">罩</span><span class="itemsname">杯：</span></div>
+							<div class="home_list_r_info">
+								<div class="home-basic-option">
+								<input type="text" placeholder="你的罩杯" readonly="readonly"/>
+								<select onchange='tochange(this)'>
+									<option value="A">A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+									<option value="E">E</option>
+								</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">情</span><span class="itemsname">感</span><span class="itemsname">状</span><span class="itemsname">态：</span></div>
+							<div class="home_list_r_info">
+								<div class="home-basic-option">
+								<input type="text" placeholder="你的情感状态" readonly="readonly"/>
+								<select name="start_sign"  onchange='tochange(this)'>
+									<option value="单身" selected="selected">单身</option>
+									<option value="保密">保密</option>
+								</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">职</span><span class="itemsname">业：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="职业" />
+							</div>
+						</div>
+					</li>
+					<li class="right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname short_name">家</span><span class="itemsname">乡：</span></div>
+							<div class="home_list_r_info">
+								<input id="hometown" type="text" readonly="" placeholder="家乡"/>
+           						<input id="vtown" type="hidden" />
+							</div>
+						</div>
+					</li>
+					<li class="right-ico">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">所</span><span class="itemsname">在</span><span class="itemsname">地</span><span class="itemsname">区：</span></div>
+							<div class="home_list_r_info">
+								<input id="city" type="text" readonly="" placeholder="所在地区"/>
+           						<input id="vcity" type="hidden" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">工</span><span class="itemsname">作</span><span class="itemsname">经</span><span class="itemsname">历：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="工作经历" />
+							</div>
+						</div>
+					</li>
+			</div>
+			<!--爱好-->
+			<div class="home_fill_basic_info home_fill_hobby">
+				<div class="items_title">
+					<h3>兴趣爱好</h3>
+				</div>
+				<ul>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">常出没地点：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="地点" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">喜欢的美食：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="美食" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">喜欢的音乐：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="音乐" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">喜欢的电影：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="电影" />
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="home_items sport_items">
+							<div class="home_list_l_info"><span class="itemsname">喜欢的运动<br />/娱乐：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="运动/娱乐" />
+							</div>
+						</div>
+					</li>
+					<li class="plaintext-box">
+						<div class="home_items plaintext">
+							<div class="home_list_l_info"><span class="itemsname">个性签名：</span></div>
+							<div class="home_list_r_info">
+								<div class="plaintext-con" contenteditable="true">喜欢的运动</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--个性标签-->
+			<div class="home_fill_basic_info  home_fill_hobby  right-ico" >
+				<div class="items_title">
+					<h3>我的标签</h3>
+				</div>
+				<ul>
+					<li class="home-basic-mark">
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">个性标签：</span></div>
+							<div class="home_list_r_info">
+								<div class="home-mark-box">
+								<a href="#this" class="mark">温柔贤惠</a><a href="#this" class="mark">智慧大方</a>
+								<a href="#this" class="mark">智慧大方慧大方</a>	<a href="#this" class="mark">温柔贤惠柔贤惠</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--微信号-->
+			<div class="home_fill_basic_info  home_fill_hobby">
+				<div class="items_title">
+					<h3>我的微信 <i>(用户查看你的微信你会有收入哦)</i></h3>
+				</div>
+				<ul>
+					<li>
+						<div class="home_items">
+							<div class="home_list_l_info"><span class="itemsname">微信号：</span></div>
+							<div class="home_list_r_info">
+								<input type="text" placeholder="微信号" />
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="isDisplay">
+					<span class="displaybtn choose"><i class="iconfont">&#xe64c;</i>展示赚钱</span>
+					<span class="notdispaybtn"><i class="iconfont">&#xe64c;</i>展示赚钱</span>
+				</div>
+			</div>
+		</div>
+		<script src="../js/LArea.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/LAreaData1.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				 var area1 = new LArea();
+				 area1.init({
+			        'trigger': '#hometown',
+			        'valueTo': '#vtown', //选择完毕后id属性输出到该位置
+			        'keys': {
+			            id: 'id',
+			            name: 'name'
+			        }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+			        'type': 1, //数据源类型
+			        'data': LAreaData //数据源
+			    });
+			     var area2 = new LArea();
+				 area2.init({
+			        'trigger': '#city',
+			        'valueTo': '#vcity',
+			        'keys': {
+			            id: 'id',
+			            name: 'name'
+			        },
+			        'type': 1,
+			        'data': LAreaData
+			    });
+   			</script>
+		<script type="text/javascript">
+			function tochange(that){
+				$(that).siblings().val($(that).val());
+			}
+		</script>
+	</body>
+</html>

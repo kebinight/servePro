@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-活动主页</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/city.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/util.js"></script>
+		<script type="text/javascript">
+		(function(){
+			setRem();
+			window.addEventListener('orientation' in window? 'deviceorientation' : 'resize',setRem);
+			function setRem(){
+				var html = document.documentElement;
+				var wid = html.clientWidth;
+				html.style.fontSize = 100*(wid/750) + 'px';
+			}
+		})();
+		</script>
+	</head>
+	<body scroll="no">
+	<script src="../css/data.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var cityIndex = function(o){
+			this.opt = {
+				navs:null
+			};
+			$.extend(this, this.opt, o);
+		}
+		$.extend(cityIndex.prototype,{
+			init:function(){
+				var obj = this;
+				obj.setData();
+				obj.bindEvent();
+			},
+			setData:function(){
+				var obj = this;
+				$('body').append('<nav id="nav"><ul class="navList" data-indexList="#List" id="navList"><li>A</li><li>B</li><li>C</li><li>D</li><li>E</li><li>F</li><li>G</li><li>H</li><li>I</li><li>J</li><li>K</li><li>L</li><li>M</li><li>N</li><li>O</li><li>P</li><li>Q</li><li>R</li><li>S</li><li>T</li><li>U</li><li>V</li><li>W</li><li>X</li><li>Y</li><li>Z</li></ul></nav>');
+			var dlStr = '<div class="fixedcon"><dt>热门城市</dt><dd class="ddcon">深圳</dd><dd class="ddcon">深圳</dd><dd class="ddcon">深圳</dd><dd class="ddcon">深圳</dd><dd class="ddcon">深圳</dd></div><div class="fixedcon"><dt>热门城市</dt><dd class="ddcon">深圳</dd><dd class="ddcon">深圳</dd></div><div class="fixedcon"><dt>热门城市</dt><dd class="ddcon">深圳</dd><dd class="ddcon">深圳</dd><dd class="ddcon">深圳</dd><dd class="ddcon">深圳</dd></div>';
+			for(var i in datacity){
+				var c = datacity[i];
+				dlStr += '<dt data-id='+i+'>'+i+'</dt>';
+				for(var j=0; j<c.length;j++){
+					dlStr += '<dd>'+c[j]+'</dd>';
+				}
+			}
+			$('body').prepend('<dl class="list" id="cityList"><dl>');
+			$('#cityList').html(dlStr);
+			obj.navs = $('#navList').children();
+			obj.startEvent();
+			},
+		startEvent:function(){
+			var obj = this,dom = $('#navList').get(0);
+			dom.addEventListener('touchstart',function(e){
+				e.preventDefault();
+			},false);
+			dom.addEventListener('touchstart',obj,false);
+			dom.addEventListener('touchmove',obj,false);
+			dom.addEventListener('touchend',obj,false);
+			
+		},
+		// 事件分发
+	    handleEvent : function(e) {
+	    	var obj = this;
+	        switch(e.type) {
+	            case "touchstart":
+	            	obj.toScroll(e);
+	                break;
+	            case "touchmove":
+	                obj.toScroll(e);
+	                break;
+	            case "touchend":
+		            for(var i = 0; i < obj.navs.length; i++){
+						obj.navs[i].className = "";
+					}
+	            	break;
+	        }
+	    },
+	    getIndex:function(e){
+	    		var obj = this;
+				var y = e.changedTouches[0].clientY;
+				for(var i = 0; i < obj.navs.length; i++){
+					if(obj.navs[i].children.length < 1){
+						var rect = obj.navs[i].getBoundingClientRect();
+						if(rect.top <= y && rect.bottom >= y){
+							return obj.navs[i];
+						}
+					}
+				}
+				return null;
+		},
+		toScroll:function(e){
+				var obj = this;
+				var index = obj.getIndex(e); //获取当前按下索引
+				if(!index){
+					return;
+				}
+				for(var i = 0; i < obj.navs.length; i++){
+					obj.navs[i].className = "";
+				}
+				index.className = "focus";
+				//console.log(index);
+				//获取索引对应的dt
+				var dt = obj.getDt(index);
+				if(!dt){
+					return;
+				}
+				//获取dt在整个页面上位置
+				var scrollY = obj.getPageY(dt);
+				//修改滚动条的位置
+				window.scrollTo(0,scrollY);
+		},
+		getDt:function(index){
+				var obj = this;
+				var id = index.innerHTML;
+				var dt = $('#cityList').find('[data-id = '+id+']').get(0);
+				//dt 不存在 查找相邻的element
+				if(!dt){
+					var next = index.nextElementSibling;
+					if(next){
+						return obj.getDt(next);
+					} else {
+						return null;
+					}
+				}
+				return dt;
+			},
+		getPageY:function(el){
+	//		var ele = $(el)[0];
+			return el.getBoundingClientRect().top + window.scrollY;
+		},
+		bindEvent:function(){
+			var obj = this;
+			$('body').on('tap',function (e){
+			    var target = e.srcElement || e.target, em = target, i = 1;
+			    while (em && !em.id && i <= 3) {
+			        em = em.parentNode;
+			        i++;
+				}
+			    if (!em || !em.id)
+			        return;	
+			    switch(em.id){
+			    	case 'cityList':
+			    		  if(e.target.tagName.toLowerCase() != 'dd'){
+			    		  	return false;
+			    		  }
+			    		  var val = $(e.target).html();
+			    		  console.log(val);
+	//		    		  $('body').html('');
+			    		  break;
+			    	default:break;
+			    }
+			});
+		}
+		});
+		(new cityIndex()).init();
+	</script>
+	<script type="text/javascript">
+	(function() {
+		var nav = document.querySelector('#nav');
+		var navList = document.querySelector('.navList');
+		var scale = nav.clientHeight / navList.offsetHeight;
+		navList.style.WebkitTransform = navList.style.transform = "scale(" + scale + ")";
+	})();
+	</script>
+	</body>
+</html>

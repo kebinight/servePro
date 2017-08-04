@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>约见吧-土豪榜</title>
+		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/view.js" type="text/javascript" charset="utf-8"></script>
+		<!--<style>
+			@-webkit-keyframes scale{
+				0%{transform: scale(1);-webkit-transform: scale(1);}
+				50%{transform: scale(0);-webkit-transform: scale(0);}
+				90%{transform: scale(.9);-webkit-transform: scale(.9);}
+				95%{transform: scale(.8);-webkit-transform: scale(.8);}
+				100%{transform: scale(1);-webkit-transform: scale(1);}
+			}
+			@keyframes scale{
+				0%{transform: scale(1);-webkit-transform: scale(1);}
+				50%{transform: scale(0);-webkit-transform: scale(0);}
+				90%{transform: scale(.9);-webkit-transform: scale(.9);}
+				95%{transform: scale(.8);-webkit-transform: scale(.8);}
+				100%{transform: scale(1);-webkit-transform: scale(1);}
+			}
+		</style>-->
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<h1>土豪财富榜</h1>
+			</div>
+		</header>
+		<div class="wraper bgff">
+			<h3 class="rich_header"></h3>
+			<!--土豪第一名-->
+			<div class="rich_list_first inner flex">
+				<div class="rich_first_left">
+					<div class="first_info">
+						<div class="first_info_img">
+							<img src="../images/richman.png" class="richman"/>
+						</div>
+						<div class="first_info_bg"></div>
+					</div>
+						<span class="coast color_friends">已消费：37778</span>
+				</div>
+				<div class="rich_first_right">
+					<div class="first_r_info beauty" id="beauty">魅力值 <i class='iconfont commico'></i></div>
+					<span class="color_active lagernum">37779999</span>
+				</div>
+			</div>
+			<!--土豪list-->
+			<div class="rich_list">
+				<ul class="voted_list outerblock"> 
+					<li>
+						<div class="voted_con flex flex_justify">
+							<div class="flex">
+								<span class="voted_place silver">2</span>
+								<div class="voted_place_info">
+									<span class="avatar"><img src="../images/avatar.jpg"/></span>
+									<h3>
+										<span class="voted_name">范冰冰</span>
+										<span class="voted_number color_gray">已消费：304857美币</span>
+									</h3>
+								</div>
+							</div>
+							<div>
+								<div class="alignright"><i class='iconfont commico activeico'></i></div>
+								<div class="alignright"><i class='lagernum color_active'>8888888</i></div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="voted_con flex flex_justify">
+							<div class="flex">
+								<span class="voted_place silver">3</span>
+								<div class="voted_place_info">
+									<span class="avatar"><img src="../images/avatar.jpg"/></span>
+									<h3>
+										<span class="voted_name">范冰冰<span class="hot"><img src="../images/hot.png" class="responseimg"/></span><span class="highter-vip">VIP 普通</span></span>
+										<span class="voted_number color_gray">已消费：304857美币</span>
+									</h3>
+								</div>
+							</div>
+							<div>
+								<div class="alignright"><i class='iconfont commico'></i></div>
+								<div class="alignright"><i class='lagernum color_active'>8888888</i></div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="voted_list outerblock"> 
+					<li>
+						<div class="voted_con flex flex_justify">
+							<div class="flex">
+								<span class="voted_place">4</span>
+								<div class="voted_place_info">
+									<span class="avatar"><img src="../images/avatar.jpg"/></span>
+									<h3>
+										<span class="voted_name">范冰冰</span>
+										<span class="voted_number color_gray">已消费：304857美币</span>
+									</h3>
+								</div>
+							</div>
+							<div>
+								<div class="alignright"><i class='iconfont color_active'>&#xe61e;</i></div>
+								<div class="alignright"><i class='lagernum color_active'>8888888</i></div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="voted_con flex flex_justify">
+							<div class="flex">
+								<span class="voted_place">5</span>
+								<div class="voted_place_info">
+									<span class="avatar"><img src="../images/avatar.jpg"/></span>
+									<h3>
+										<span class="voted_name">范冰冰</span>
+										<span class="voted_number color_gray">已消费：304857美币</span>
+									</h3>
+								</div>
+							</div>
+							<div>
+								<div class="alignright"><i class='iconfont color_active'>&#xe61e;</i></div>
+								<div class="alignright"><i class='lagernum color_active'>8888888</i></div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="voted_con flex flex_justify">
+							<div class="flex">
+								<span class="voted_place">6</span>
+								<div class="voted_place_info">
+									<span class="avatar"><img src="../images/avatar.jpg"/></span>
+									<h3>
+										<span class="voted_name">范冰冰</span>
+										<span class="voted_number color_gray">已消费：304857美币</span>
+									</h3>
+								</div>
+							</div>
+							<div>
+								<div class="alignright"><i class='iconfont color_active'>&#xe61e;</i></div>
+								<div class="alignright"><i class='lagernum color_active'>8888888</i></div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div style="height:1.4rem"></div>
+		<!--底部-->
+		<div class="footer">
+			<ul class="clearfix">
+				<li class="active">
+					<span class="bar-find">
+						<a href="#this">
+							<i class="iconfont">&#xe613;</i>发现
+						</a>
+					</span>
+				</li>
+				<li>
+					<span class="bar-activity">
+						<a href="#this">
+							<i class="iconfont">&#xe614;</i>活动
+						</a>
+					</span>
+				</li>
+				<li>
+					<span class="bar-chat">
+						<a href="#this">
+							<i class="iconfont">&#xe603;</i>私聊
+						</a>
+					</span>
+				</li>
+				<li>
+					<span class="bar-home">
+						<a href="#this">
+							<i class="iconfont">&#xe616;</i>我的
+						</a>
+					</span>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$('#beauty').on('tap',function(){
+				$(this).find('.iconfont').toggleClass('activeico');
+			})
+		</script>
+	</body>
+</html>
