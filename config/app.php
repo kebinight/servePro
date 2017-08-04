@@ -232,7 +232,7 @@ return [
             //'port' => 'non_standard_port_number',
             'username' => 'root',
             'password' => '123456',
-            'database' => 'momoai',
+            'database' => 'servepro',
             //'database' => 'test',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
