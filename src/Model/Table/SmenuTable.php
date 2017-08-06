@@ -34,9 +34,15 @@ class SmenuTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
 
-        $this->hasMany('Srole', [
-            'className' => 'Srole',
-            'foreignKey' => 'role_id'
+        //管理员
+        $this->hasOne('Admin', [
+            'className' => 'Suser',
+            'foreignKey' => 'admin_id'
+        ]);
+
+        //菜单对应角色权限
+        $this->belongsToMany('Sroles', [
+            'through' => 'SMenuRole'
         ]);
 
         $this->addBehavior('Timestamp', [

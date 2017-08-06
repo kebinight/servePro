@@ -4,19 +4,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Slimit Entity
+ * Suser Entity
  *
  * @property int $id
- * @property int $pid
- * @property string $name
- * @property string $node
- * @property int $rank
  * @property \Cake\I18n\Time $create_time
- * @property \Cake\I18n\Time $update_time
  *
- * @property \App\Model\Entity\Suser $admin
+ * @property \App\Model\Entity\Suser $user
+ * @property \App\Model\Entity\Srole $role
  */
-class Slimit extends Entity
+class SUserRole extends Entity
 {
 
     /**

@@ -35,9 +35,15 @@ class SroleTable extends Table
         $this->table('s_role');
         $this->displayField('name');
 
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER'
+        //管理员
+        $this->hasOne('Adminer', [
+            'className' => 'Suser',
+            'foreignKey' => 'user_id'
+        ]);
+
+        //角色权限
+        $this->belongsToMany('Slimits', [
+            'through' => 'SRoleLimit'
         ]);
 
         $this->addBehavior('Timestamp', [

@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Slimit Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Users
+ * @property \Cake\ORM\Association\BelongsTo $Admins
  *
  * @method \App\Model\Entity\Slimit get($primaryKey, $options = [])
  * @method \App\Model\Entity\Slimit newEntity($data = null, array $options = [])
@@ -36,10 +36,13 @@ class SlimitTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
 
-        $this->hasOne('Users', [
-            'foreignKey' => 'user_id'
+        //管理者
+        $this->hasOne('Admin', [
+            'className' => 'Suser',
+            'foreignKey' => 'admin_id'
         ]);
 
+        //自关联
         $this->belongsTo('Parent', [
             'className' => 'Slimit',
             'foreignKey' => 'pid'
@@ -110,7 +113,7 @@ class SlimitTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['admin_id'], 'Admin'));
         return $rules;
     }
 }

@@ -53,12 +53,19 @@ class CommonComponent extends Component
             'code' => GlobalCode::SUCCESS,
             'status' => $status,
             'msg' => $msg,
-            'data' => $data ? $data : ['timestamp' => time()]
+            'data' => $data ? $data : []
         ];
         if($format == 'json') {
             $returnData = json_encode($returnData, JSON_UNESCAPED_UNICODE);
         }
-        echo $returnData;
+
+        //跨域访问
+        $response = $this->response->cors($this->request)->allowCredentials()
+            ->allowMethods(['GET', 'POST'])->allowOrigin('*')->build();
+
+        $response->body($returnData);
+        $response->charset('utf-8');
+        $response->send();
         exit();
     }
 

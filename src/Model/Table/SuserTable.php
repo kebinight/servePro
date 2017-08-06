@@ -34,6 +34,12 @@ class SuserTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
+        //用户角色
+        $this->belongsToMany('Roles', [
+            'className' => 'Srole',
+            'joinTable' => 's_user_role'
+        ]);
+
         $this->addBehavior('Timestamp', [
             'events' => [
                 'Model.beforeSave' => [

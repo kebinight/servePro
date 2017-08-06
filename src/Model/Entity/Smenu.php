@@ -16,6 +16,8 @@ use Cake\ORM\Entity;
  * @property string $remark
  * @property \Cake\I18n\Time $create_time
  * @property \Cake\I18n\Time $update_time
+ *
+ * @property \App\Model\Entity\Suser $admin
  */
 class Smenu extends Entity
 {
