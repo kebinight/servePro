@@ -39,6 +39,30 @@ class CommonComponent extends Component
 
 
     /**
+     * 执行返回
+     * @param $returnData
+     * @param string $format
+     */
+    protected function doReturn($returnData, $format = 'json') {
+        $this->autoRender = false;
+
+        if($format == 'json') {
+            $returnData = json_encode($returnData, JSON_UNESCAPED_UNICODE);
+        }
+
+        //跨域访问
+        $response = $this->response->cors($this->request)->allowCredentials()
+            ->allowHeaders(["Access-Control-Allow-Headers" => "Content-Type,Access-Token"])
+            ->allowMethods(['GET', 'POST', 'OPTIONS'])->allowOrigin('*')->build();
+        $response->type($format);
+        $response->body($returnData);
+        $response->charset('utf-8');
+        $response->send();
+        exit();
+    }
+
+
+    /**
      * 返回业务成功处理结果数据包-不管业务结果是true还是false，都是业务成功处理的范畴
      * 此接口只返回code为200的情况，其他情况不在此范畴
      * @param bool $status
@@ -47,26 +71,14 @@ class CommonComponent extends Component
      * @param string $format  返回的数据格式
      */
     public function dealReturn($status = true, $msg = '', $data = [], $format = 'json') {
-        $this->autoRender = false;
-        $this->response->type($format);
         $returnData = [
             'code' => GlobalCode::SUCCESS,
             'status' => $status,
             'msg' => $msg,
             'data' => $data ? $data : []
         ];
-        if($format == 'json') {
-            $returnData = json_encode($returnData, JSON_UNESCAPED_UNICODE);
-        }
 
-        //跨域访问
-        $response = $this->response->cors($this->request)->allowCredentials()
-            ->allowMethods(['GET', 'POST'])->allowOrigin('*')->build();
-
-        $response->body($returnData);
-        $response->charset('utf-8');
-        $response->send();
-        exit();
+        $this->doReturn($returnData, $format);
     }
 
 
@@ -80,8 +92,6 @@ class CommonComponent extends Component
      * @param string $format  返回的数据格式
      */
     public function failReturn($errmsg = '接口参数不正确', $code = GlobalCode::OPTIONS_NOTRIGHT, $msg = '', $data = [], $format = 'json') {
-        $this->autoRender = false;
-        $this->response->type($format);
         $returnData = [
             'code' => $code,
             'status' => false,
@@ -89,11 +99,8 @@ class CommonComponent extends Component
             'data' => $data,
             'errmsg' => $errmsg
         ];
-        if($format == 'json') {
-            $returnData = json_encode($returnData, JSON_UNESCAPED_UNICODE);
-        }
-        echo $returnData;
-        exit();
+
+        $this->doReturn($returnData, $format);
     }
 
 
@@ -102,12 +109,7 @@ class CommonComponent extends Component
      * @param string $msg
      */
     public function anyReturn($msg, $format = 'json') {
-        $this->autoRender = false;
-        if($format == 'json') {
-            $msg = json_encode($msg, JSON_UNESCAPED_UNICODE);
-        }
-        echo $msg;
-        exit();
+        $this->doReturn($msg, $format);
     }
 
 
@@ -572,15 +574,9 @@ class CommonComponent extends Component
             $user = $this->getLoginer();
             $url = '/' . $this->request->url;
             if (!$user) {
-                if ($this->request->is('ajax')) {
-                    $url = $this->request->referer();
-                    $login_url = '/user/login?redirect_url=' . $url;
-                    $this->anyReturn(['status' => false, 'msg' => '请先登录', 'code' => 403, 'redirect_url' => $login_url]);
-                }
-                $url = urlencode($url);
-                $this->controller->redirect('/user/login?redirect_url=' . $url);
-                $this->response->send();
-                $this->response->stop();
+                $url = $this->request->referer();
+                $login_url = '/user/login?redirect_url=' . $url;
+                $this->anyReturn(['status' => false, 'msg' => '请先登录', 'code' => 403, 'redirect_url' => $login_url]);
                 return false;
             }
         }
