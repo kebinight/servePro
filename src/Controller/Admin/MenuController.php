@@ -26,12 +26,20 @@ class MenuController extends AppController
         if(!$menus) {
             $menus = [
                 [
-                    'name' => '账户管理',
+                    'name' => '账号管理',
                     'node' => 'user-set',
                     'subs' => [
                         [
-                            'name' => '菜单管理',
-                            'node' => 'menu-index'
+                            'name' => '用户管理',
+                            'node' => 'user-index'
+                        ],
+                        [
+                            'name' => '角色管理',
+                            'node' => 'role-index'
+                        ],
+                        [
+                            'name' => '权限管理',
+                            'node' => 'limit-index'
                         ]
                     ]
                 ],
@@ -41,7 +49,7 @@ class MenuController extends AppController
                     'subs' => [
                         [
                             'name' => '菜单管理',
-                            'node' => 'other',
+                            'node' => 'menu-index',
                         ]
                     ]
                 ]
@@ -114,7 +122,7 @@ class MenuController extends AppController
         if($this->request->is(["POST", "OPTIONS"])) {
             $data = $this->request->data;
 
-            if($data['id']) {
+            if(isset($data['id'])) {
                 $menu = $this->Smenu->get($data['id']);
                 $newMenu = $this->Smenu->patchEntity($menu, $data);
             } else {

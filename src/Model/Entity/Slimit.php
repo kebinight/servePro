@@ -7,10 +7,12 @@ use Cake\ORM\Entity;
  * Slimit Entity
  *
  * @property int $id
- * @property int $pid
+ * @property int $parent_id
+ * @property int $status
  * @property string $name
  * @property string $node
  * @property int $rank
+ * @property string $remark
  * @property \Cake\I18n\Time $create_time
  * @property \Cake\I18n\Time $update_time
  *

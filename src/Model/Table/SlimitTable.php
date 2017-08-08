@@ -45,12 +45,12 @@ class SlimitTable extends Table
         //自关联
         $this->belongsTo('Parent', [
             'className' => 'Slimit',
-            'foreignKey' => 'pid'
+            'foreignKey' => 'parent_id'
         ]);
 
         $this->hasMany('Child', [
             'className' => 'Slimit',
-            'foreignKey' => 'pid'
+            'foreignKey' => 'parent_id'
         ]);
 
         $this->addBehavior('Timestamp', [
@@ -80,6 +80,10 @@ class SlimitTable extends Table
             ->allowEmpty('pid');
 
         $validator
+            ->integer('status')
+            ->allowEmpty('status');
+
+        $validator
             ->requirePresence('name', 'create')
             ->notEmpty('name');
 
@@ -88,19 +92,11 @@ class SlimitTable extends Table
             ->notEmpty('node');
 
         $validator
+            ->allowEmpty('remark');
+
+        $validator
             ->integer('rank')
             ->allowEmpty('rank');
-
-        $validator
-            ->dateTime('create_time')
-            ->requirePresence('create_time', 'create')
-            ->notEmpty('create_time');
-
-        $validator
-            ->dateTime('update_time')
-            ->requirePresence('update_time', 'create')
-            ->notEmpty('update_time');
-
         return $validator;
     }
 
@@ -113,7 +109,7 @@ class SlimitTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['admin_id'], 'Admin'));
+        //$rules->add($rules->existsIn(['admin_id'], 'Admin'));
         return $rules;
     }
 }

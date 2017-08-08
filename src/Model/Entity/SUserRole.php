@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property \Cake\I18n\Time $create_time
  *
+ * @property \App\Model\Entity\Suser $admin
  * @property \App\Model\Entity\Suser $user
  * @property \App\Model\Entity\Srole $role
  */

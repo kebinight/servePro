@@ -33,6 +33,12 @@ class SMenuRoleTable extends Table
         $this->table('s_menu_role');
         $this->primaryKey('id');
 
+        //管理者
+        $this->hasOne('Admin', [
+            'className' => 'Suser',
+            'foreignKey' => 'admin_id'
+        ]);
+
         //多对多中间表
         $this->belongsTo('Menu', [
             'className' => 'Smenu'

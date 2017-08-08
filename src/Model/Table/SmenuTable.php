@@ -45,6 +45,17 @@ class SmenuTable extends Table
             'through' => 'SMenuRole'
         ]);
 
+        //自关联
+        $this->belongsTo('Parent', [
+            'className' => 'Smenu',
+            'foreignKey' => 'parent_id'
+        ]);
+
+        $this->hasMany('Child', [
+            'className' => 'Smenu',
+            'foreignKey' => 'parent_id'
+        ]);
+
         $this->addBehavior('Timestamp', [
             'events' => [
                 'Model.beforeSave' => [

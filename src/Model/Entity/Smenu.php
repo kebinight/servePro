@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $node
- * @property int $pid
+ * @property int $parent_id
  * @property string $class
  * @property int $rank
  * @property int $status

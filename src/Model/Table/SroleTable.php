@@ -36,9 +36,9 @@ class SroleTable extends Table
         $this->displayField('name');
 
         //管理员
-        $this->hasOne('Adminer', [
+        $this->hasOne('Admin', [
             'className' => 'Suser',
-            'foreignKey' => 'user_id'
+            'foreignKey' => 'admin_id'
         ]);
 
         //角色权限

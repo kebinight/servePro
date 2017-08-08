@@ -69,6 +69,7 @@ class AppController extends Controller {
         $this->firewall = [
             'Home' => ['*'],
             'Menu' => ['*'],
+            'Slimit' => ['*'],
         ];
     }
 
