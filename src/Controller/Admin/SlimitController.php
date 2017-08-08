@@ -13,7 +13,12 @@ class SlimitController extends AppController
 
     public function index()
     {
-        $limits = $this->Slimit->find('threaded')->where(['status' => 1])->toArray();
+        $limits = $this->Slimit->find('threaded')
+            ->where(['status' => 1])->map(function($row) {
+                $row->create_time = $row->create_time->i18nFormat('yyyy-MM-dd HH:mm');
+                $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
+                return $row;
+            })->toArray();
         if(!$limits) {
             $limits = [
                 [

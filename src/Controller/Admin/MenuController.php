@@ -26,11 +26,21 @@ class MenuController extends AppController
         if(!$menus) {
             $menus = [
                 [
-                    'name' => '账号管理',
+                    'name' => '基础设置',
+                    'node' => 'base-set',
+                    'subs' => [
+                        [
+                            'name' => '菜单管理',
+                            'node' => 'menu-index',
+                        ]
+                    ]
+                ],
+                [
+                    'name' => '系统设置',
                     'node' => 'user-set',
                     'subs' => [
                         [
-                            'name' => '用户管理',
+                            'name' => '账号管理',
                             'node' => 'user-index'
                         ],
                         [
@@ -40,16 +50,6 @@ class MenuController extends AppController
                         [
                             'name' => '权限管理',
                             'node' => 'limit-index'
-                        ]
-                    ]
-                ],
-                [
-                    'name' => '基础设置',
-                    'node' => 'base-set',
-                    'subs' => [
-                        [
-                            'name' => '菜单管理',
-                            'node' => 'menu-index',
                         ]
                     ]
                 ]
