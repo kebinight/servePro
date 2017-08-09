@@ -70,6 +70,7 @@ class AppController extends Controller {
             'Home' => ['*'],
             'Menu' => ['*'],
             'Slimit' => ['*'],
+            'Role' => ['*']
         ];
     }
 
@@ -81,8 +82,11 @@ class AppController extends Controller {
      * @param Event $event
      */
     public function beforeFilter(Event $event) {
-        $this->checkLogin();  //自动登录并检测登陆
+        if($this->request->is('OPTIONS')) {
+            return $this->Common->dealReturn();
+        }
 
+        $this->checkLogin();  //自动登录并检测登陆
         $defaultPosition = implode(',', getDefalutPosition());
         $this->coord = $this->request->cookie('coord')?$this->request->cookie('coord') : $defaultPosition;
 

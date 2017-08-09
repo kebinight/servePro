@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `s_role_limit` (
   `id` int(10) unsigned NOT NULL,
   `admin_id` int(10) unsigned NOT NULL COMMENT '管理者id',
   `role_id` int(10) unsigned NOT NULL COMMENT '对应角色id',
-  `limit_it` int(10) unsigned NOT NULL COMMENT '对应权限id',
+  `limit_id` int(10) unsigned NOT NULL COMMENT '对应权限id',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='后台管理系统_角色_权限表';

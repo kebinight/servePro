@@ -30,7 +30,7 @@ class SRoleLimitTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('s_menu_role');
+        $this->table('s_role_limit');
         $this->primaryKey('id');
 
         //管理者
@@ -41,11 +41,11 @@ class SRoleLimitTable extends Table
 
         //多对多中间表
         $this->belongsTo('Slimit', [
-            'className' => 'SLimit',
             'foreignKey' => 'limit_id'
         ]);
-        $this->belongsTo('Role', [
-            'className' => 'Srole'
+
+        $this->belongsTo('Srole', [
+            'foreignKey' => 'role_id'
         ]);
 
         $this->addBehavior('Timestamp', [

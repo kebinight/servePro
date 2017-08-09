@@ -42,7 +42,8 @@ class SmenuTable extends Table
 
         //菜单对应角色权限
         $this->belongsToMany('Srole', [
-            'through' => 'SMenuRole'
+            'through' => 'SMenuRole',
+            'foreignKey' => 'role_id'
         ]);
 
         //自关联

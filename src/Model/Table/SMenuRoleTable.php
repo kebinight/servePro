@@ -41,10 +41,13 @@ class SMenuRoleTable extends Table
 
         //多对多中间表
         $this->belongsTo('Menu', [
-            'className' => 'Smenu'
+            'className' => 'Smenu',
+            'foreignKey' => 'menu_id'
         ]);
+
         $this->belongsTo('Role', [
-            'className' => 'Srole'
+            'className' => 'Srole',
+            'foreignKey' => 'role_id'
         ]);
 
         $this->addBehavior('Timestamp', [

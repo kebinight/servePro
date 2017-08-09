@@ -33,6 +33,7 @@ class SroleTable extends Table
         parent::initialize($config);
 
         $this->table('s_role');
+        $this->primaryKey('id');
         $this->displayField('name');
 
         //管理员
@@ -42,8 +43,12 @@ class SroleTable extends Table
         ]);
 
         //角色权限
-        $this->belongsToMany('Slimits', [
-            'through' => 'SRoleLimit'
+        $this->belongsToMany('Slimit', [
+            'through' => 'SRoleLimit',
+            'foreignKey' => 'role_id',
+            'targetForeignKey' => 'limit_id'
+            //'joinTable' => 'SRoleLimit',
+            //'className' => 'Slimit'
         ]);
 
         $this->addBehavior('Timestamp', [
@@ -66,8 +71,7 @@ class SroleTable extends Table
     {
         $validator
             ->integer('id')
-            ->requirePresence('id', 'create')
-            ->notEmpty('id');
+            ->allowEmpty('id', 'create');
 
         $validator
             ->requirePresence('name', 'create')
@@ -77,6 +81,9 @@ class SroleTable extends Table
             ->integer('rank')
             ->requirePresence('rank', 'create')
             ->notEmpty('rank');
+
+        $validator
+            ->integer('status');
 
         $validator
             ->allowEmpty('remark');
@@ -101,8 +108,6 @@ class SroleTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
-
         return $rules;
     }
 }

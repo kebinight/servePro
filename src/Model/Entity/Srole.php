@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property int $rank
+ * @property int $status
  * @property string $remark
  * @property \Cake\I18n\Time $create_time
  * @property \Cake\I18n\Time $update_time
