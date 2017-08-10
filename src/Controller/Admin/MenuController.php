@@ -1,12 +1,13 @@
 <?php
 namespace App\Controller\Admin;
 use Cake\ORM\TableRegistry;
+use GlobalCode;
 
 
 /**
  * Menu Controller
  *
- * @property \App\Model\Table\SMenuTable $Menu
+ * @property \App\Model\Table\SMenuTable $Smenu
  */
 class MenuController extends AppController
 {
@@ -61,78 +62,56 @@ class MenuController extends AppController
 
     public function index()
     {
-        $menus = $this->Smenu->find()->where(['status' => 1])->toArray();
-        if(!$menus) {
-            $menus = [
-                [
-                    'id' => 1,
-                    'name' => '账户管理',
-                    'node' => 'user-set',
-                    'rank' => 0,
-                    'status' => '启用',
-                    'admin' => [
-                        'name' => '小白'
-                    ],
-                    'pid' => 0,
-                ],
-                [
-                    'id' => 2,
-                    'name' => '菜单管理',
-                    'node' => 'menu-set',
-                    'rank' => 0,
-                    'status' => '启用',
-                    'admin' => [
-                        'name' => '小白'
-                    ],
-                    'pid' => 1
-                ],
-                [
-                    'id' => 3,
-                    'name' => '基础设置',
-                    'node' => 'base-set',
-                    'status' => '启用',
-                    'rank' => 0,
-                    'admin' => [
-                        'name' => '小白'
-                    ],
-                    'pid' => 0,
-                ],
-                [
-                    'id' => 4,
-                    'name' => '菜单管理',
-                    'node' => 'menu-set',
-                    'status' => '启用',
-                    'rank' => 0,
-                    'admin' => [
-                        'name' => '小白'
-                    ],
-                    'pid' => 3
-                ]
-            ];
-        }
+        $menus = $this->Smenu->find()->where(['status' => 1])->map(function($row) {
+            $row->create_time = $row->create_time->i18nFormat('yyyy-MM-dd HH:mm');
+            $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
+            return $row;
+        })->toArray();
         $this->Common->dealReturn(true, '', ['menu' => $menus]);
     }
 
+
+    /**
+     *  初始化添加/编辑页面数据
+     */
+    public function saveIndex()
+    {
+        if($this->request->is(['POST'])) {
+            $id = $this->request->data('id');
+            $menu = '';
+            if($id) {
+                $menu = $this->Smenu->get($id, ['contain' => ['Srole' => function($q) {
+                    return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
+                }]]);
+            }
+            $roleTb = TableRegistry::get('Srole');
+            $role = $roleTb->find()->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
+
+            $rootMenu = $this->Smenu->find()->where(['status' => GlobalCode::COMMON_STATUS_ON, 'parent_id' => 0])->toArray();
+
+            $this->Common->dealReturn(true, '', ['menu' => $menu, 'roles' => $role, 'rootMenus' => $rootMenu]);
+        }
+    }
 
     /**
      * 添加/更新菜单信息
      */
     public function save()
     {
-        if($this->request->is(["POST", "OPTIONS"])) {
+        if($this->request->is(["POST"])) {
             $data = $this->request->data;
-
+            //$this->Common->dealReturn(true, json_encode($data));
             if(isset($data['id'])) {
                 $menu = $this->Smenu->get($data['id']);
                 $newMenu = $this->Smenu->patchEntity($menu, $data);
             } else {
                 $newMenu = $this->Smenu->newEntity($data);
-                $this->Common->dealReturn(true, json_encode($newMenu));
             }
 
             if($this->Smenu->save($newMenu)) {
                 $this->Common->dealReturn(true, '操作成功');
             } else {
+                debug($newMenu);
                 $this->Common->dealReturn(false, '操作失败');
             }
         }

@@ -35,9 +35,10 @@ class SuserTable extends Table
         $this->primaryKey('id');
 
         //用户角色
-        $this->belongsToMany('Roles', [
-            'className' => 'Srole',
-            'joinTable' => 's_user_role'
+        $this->belongsToMany('Srole', [
+            'through' => 'SUserRole',
+            'foreignKey' => 'user_id',
+            'targetForeignKey' => 'role_id'
         ]);
 
         $this->addBehavior('Timestamp', [

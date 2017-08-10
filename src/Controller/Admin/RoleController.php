@@ -20,7 +20,10 @@ class RoleController extends AppController
     public function index()
     {
         $roles = $this->Srole->find()
-            ->map(function($row) {
+            ->contain(['Slimit' => function($q) {
+                    return $q->where(['status' => GlobalCode::COMMON_STATUS_ON, 'parent_id !=' => 0]);
+                }
+            ])->map(function($row) {
                 $row->create_time = $row->create_time->i18nFormat('yyyy-MM-dd HH:mm');
                 $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
                 return $row;
@@ -54,11 +57,14 @@ class RoleController extends AppController
     {
         if($this->request->is(['POST'])) {
             $id = $this->request->data('id');
-            $role = $this->Srole->get($id, ['contain' => ['Slimit' => function($q) {
-                return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
-            }]]);
+            $role = '';
+            if($id) {
+                $role = $this->Srole->get($id, ['contain' => ['Slimit' => function($q) {
+                    return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
+                }]]);
+            }
             $limitTb = TableRegistry::get('Slimit');
-            $limits = $limitTb->find()->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
+            $limits = $limitTb->find('threaded')->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
 
             $this->Common->dealReturn(true, '', ['role' => $role, 'limits' => $limits]);
         }
@@ -80,7 +86,7 @@ class RoleController extends AppController
      */
     public function save()
     {
-        if($this->request->is(["POST", "OPTIONS"])) {
+        if($this->request->is(["POST"])) {
             $data = $this->request->data;
             if(isset($data['id'])) {
                 $role = $this->Srole->get($data['id']);

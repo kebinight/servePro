@@ -43,7 +43,8 @@ class SmenuTable extends Table
         //菜单对应角色权限
         $this->belongsToMany('Srole', [
             'through' => 'SMenuRole',
-            'foreignKey' => 'role_id'
+            'foreignKey' => 'menu_id',
+            'targetForeignKey' => 'role_id'
         ]);
 
         //自关联
@@ -87,9 +88,9 @@ class SmenuTable extends Table
             ->allowEmpty('node');
 
         $validator
-            ->integer('pid')
-            ->requirePresence('pid', 'create')
-            ->notEmpty('pid');
+            ->integer('parent_id')
+            ->requirePresence('parent_id', 'create')
+            ->notEmpty('parent_id');
 
         $validator
             ->allowEmpty('class');

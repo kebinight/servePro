@@ -70,7 +70,8 @@ class AppController extends Controller {
             'Home' => ['*'],
             'Menu' => ['*'],
             'Slimit' => ['*'],
-            'Role' => ['*']
+            'Role' => ['*'],
+            'User' => ['*'],
         ];
     }
 
