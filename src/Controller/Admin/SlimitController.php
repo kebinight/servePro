@@ -19,68 +19,6 @@ class SlimitController extends AppController
                 $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
                 return $row;
             })->toArray();
-        if(!$limits) {
-            $limits = [
-                [
-                    'id' => 1,
-                    'name' => '菜单管理',
-                    'node' => 'menu',
-                    'pid' => 0,
-                    'rank' => 0,
-                    'status' => 1,
-                    'remark' => '菜单管理所有操作权限',
-                    'children' => [
-                        [
-                            'id' => 2,
-                            'name' => '添加/编辑',
-                            'node' => 'save',
-                            'pid' => 0,
-                            'rank' => 0,
-                            'status' => 1,
-                            'remark' => '添加/编辑菜单权限',
-                        ],
-                        [
-                            'id' => 3,
-                            'name' => '删除',
-                            'node' => 'delete',
-                            'pid' => 0,
-                            'rank' => 0,
-                            'status' => 1,
-                            'remark' => '删除菜单权限',
-                        ]
-                    ]
-                ],
-                [
-                    'id' => 9,
-                    'name' => '权限管理',
-                    'node' => 'limit',
-                    'pid' => 0,
-                    'rank' => 0,
-                    'status' => 1,
-                    'remark' => '权限管理所有操作权限',
-                    'children' => [
-                        [
-                            'id' => 10,
-                            'name' => '添加/编辑',
-                            'node' => 'save',
-                            'pid' => 0,
-                            'rank' => 0,
-                            'status' => 1,
-                            'remark' => '添加/编辑权限',
-                        ],
-                        [
-                            'id' => 11,
-                            'name' => '删除',
-                            'node' => 'delete',
-                            'pid' => 0,
-                            'rank' => 0,
-                            'status' => 1,
-                            'remark' => '删除权限',
-                        ]
-                    ]
-                ]
-            ];
-        }
         $this->Common->dealReturn(true, '', ['limits' => $limits]);
     }
 

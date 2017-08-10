@@ -62,7 +62,11 @@ class MenuController extends AppController
 
     public function index()
     {
-        $menus = $this->Smenu->find()->where(['status' => 1])->map(function($row) {
+        $menus = $this->Smenu->find()->where(['status' => 1])->contain([
+            'Srole' => function($q) {
+                return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
+            }
+        ])->map(function($row) {
             $row->create_time = $row->create_time->i18nFormat('yyyy-MM-dd HH:mm');
             $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
             return $row;

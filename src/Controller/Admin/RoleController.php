@@ -21,31 +21,13 @@ class RoleController extends AppController
     {
         $roles = $this->Srole->find()
             ->contain(['Slimit' => function($q) {
-                    return $q->where(['status' => GlobalCode::COMMON_STATUS_ON, 'parent_id !=' => 0]);
+                    return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
                 }
             ])->map(function($row) {
                 $row->create_time = $row->create_time->i18nFormat('yyyy-MM-dd HH:mm');
                 $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
                 return $row;
             })->toArray();
-        if(!$roles) {
-            $roles = [
-                [
-                    'id' => 1,
-                    'name' => '超级管理员',
-                    'rank' => 0,
-                    'status' => 1,
-                    'remark' => '拥有所有操作权限'
-                ],
-                [
-                    'id' => 2,
-                    'name' => '普通管理员',
-                    'rank' => 0,
-                    'status' => 1,
-                    'remark' => '拥有部分操作权限'
-                ]
-            ];
-        }
         $this->Common->dealReturn(true, '', ['roles' => $roles]);
     }
 
