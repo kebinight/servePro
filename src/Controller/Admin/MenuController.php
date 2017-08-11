@@ -8,6 +8,7 @@ use GlobalCode;
  * Menu Controller
  *
  * @property \App\Model\Table\SMenuTable $Smenu
+ * @property \App\Controller\Component\CommonComponent $Common
  */
 class MenuController extends AppController
 {
@@ -25,36 +26,55 @@ class MenuController extends AppController
     {
         $menus = $this->Smenu->find('threaded')->where(['status' => 1])->toArray();
         if(!$menus) {
-            $menus = [
-                [
-                    'name' => '基础设置',
-                    'node' => 'base-set',
-                    'subs' => [
-                        [
-                            'name' => '菜单管理',
-                            'node' => 'menu-index',
-                        ]
-                    ]
-                ],
+            $initMenu = $this->Smenu->newEntities([
                 [
                     'name' => '系统设置',
-                    'node' => 'user-set',
-                    'subs' => [
+                    'node' => 'base-set',
+                    'parent_id' => 0,
+                    'rank' => 0,
+                    'status' => 1,
+                    'remark' => '系统自动初始化基础设置菜单',
+                    'children' => [
                         [
-                            'name' => '账号管理',
-                            'node' => 'user-index'
+                            'name' => '权限管理',
+                            'node' => 'limit-index',
+                            'parent_id' => 0,
+                            'rank' => 0,
+                            'status' => 1,
+                            'remark' => '系统自动初始化权限管理菜单',
                         ],
                         [
                             'name' => '角色管理',
-                            'node' => 'role-index'
+                            'node' => 'role-index',
+                            'parent_id' => 0,
+                            'rank' => 0,
+                            'status' => 1,
+                            'remark' => '系统自动初始化角色管理菜单',
                         ],
                         [
-                            'name' => '权限管理',
-                            'node' => 'limit-index'
+                            'name' => '管理员管理',
+                            'node' => 'user-index',
+                            'parent_id' => 0,
+                            'rank' => 0,
+                            'status' => 1,
+                            'remark' => '系统自动初始化管理员管理菜单',
+                        ],
+                        [
+                            'name' => '菜单管理',
+                            'node' => 'menu-index',
+                            'parent_id' => 0,
+                            'rank' => 0,
+                            'status' => 1,
+                            'remark' => '系统自动初始化基础设置菜单',
                         ]
                     ]
                 ]
-            ];
+            ]);
+            if($res = $this->Smenu->saveMany($initMenu, ['associated' => ['Children']])) {
+                $this->Common->dealReturn(true, '', ['menu' => $initMenu]);
+            } else {
+                $this->Common->failReturn(GlobalCode::API_ERROR, '数据库操作有问题，请检查', '菜单初始化失败');
+            }
         }
         $this->Common->dealReturn(true, '', ['menu' => $menus]);
     }
@@ -123,22 +143,24 @@ class MenuController extends AppController
 
 
     /**
-     * Delete method
-     *
-     * @param string|null $id Menu id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * 删除
+     * @param int $id
      */
-    public function delete($id = null)
+    public function delete()
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $menu = $this->Menu->get($id);
-        if ($this->Menu->delete($menu)) {
-            $this->Flash->success(__('The menu has been deleted.'));
-        } else {
-            $this->Flash->error(__('The menu could not be deleted. Please, try again.'));
+        if($this->request->is(["POST"])) {
+            $data = $this->request->data;
+            if(isset($data['id'])) {
+                $entity = $this->Smenu->get($data['id']);
+                $result = $this->Smenu->delete($entity);
+                if($result) {
+                    $this->Common->dealReturn(true, '操作成功');
+                } else {
+                    $this->Common->dealReturn(true, '操作失败');
+                }
+            } else {
+                $this->Common->failReturn();
+            }
         }
-
-        return $this->redirect(['action' => 'index']);
     }
 }

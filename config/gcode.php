@@ -16,19 +16,23 @@ class GlobalCode {
      * 全局状态码
      * ********************************************************
      */
-    const FAIL = -1;  //操作失败
-    const SUCCESS = 200;  //处理成功
-    const REG_NOT_FIN = 201;  //未完成注册
-    const FORBIDDEN_ACCOUNT = 202;  //账号被限制登录
-    const ACCOUNT_NOT_FIND = 203; //未注册的账号
+    //通用业务类状态
+    const API_SUCCESS           = 200;  //处理成功
+    const API_REG_NO_FIN        = 201;  //未完成注册
+    const API_FORBIDDEN_ACCOUNT = 202;  //账号被限制登录
+    const API_NO_ACCOUNT        = 203; //未注册的账号
+    const API_NO_LOGIN          = 403; //用户尚未登录
 
-    const API_CHECK_NOPASS = 401;  //接口安全认证不通过
-    const NO_LOGIN = 403;  //尚未登录
-    const API_NOT_SAFE = 405;  //请求受限制，无法访问接口
-    const TIMESTAMP_OUTTIME = 408;  //接口时间戳过期
-    const OPTIONS_NOTRIGHT = 412;  //参数不正确
-    const ERROR = 500;      //失败的调用
+    //接口调用类状态
+    const API_ERROR             = 10100;      //失败的调用
+    const API_OPTIONS           = 10101;  //参数不正确
 
+    const API_CHECK_NOPASS      = 10200;  //接口安全认证不通过
+    const API_TIMEOUT           = 10201;  //接口时间戳过期
+
+    const API_NOT_SAFE          = 10300;  //请求受限制，无法访问接口
+
+    //其他业务类状态(> 20000)
     /**
      * ********************************************************
      * 全局常量
@@ -45,21 +49,23 @@ class GlobalCode {
      */
     public static function toString($code = null) {
         $strs = [
-            GlobalCode::FAIL => '操作失败',
-            GlobalCode::SUCCESS => '处理成功',
-            GlobalCode::REG_NOT_FIN => '未完成注册',
-            GlobalCode::FORBIDDEN_ACCOUNT => '账号被限制登录',
-            GlobalCode::ACCOUNT_NOT_FIND => '未注册的账号',
+            GlobalCode::API_SUCCESS => '处理成功',
+            GlobalCode::API_REG_NO_FIN => '未完成注册',
+            GlobalCode::API_FORBIDDEN_ACCOUNT => '账号被限制登录',
+            GlobalCode::API_NO_ACCOUNT => '未注册的账号',
+            GlobalCode::API_NO_LOGIN => '尚未登录',
+
+            GlobalCode::API_ERROR => '失败的调用',
+            GlobalCode::API_OPTIONS => '参数不正确',
+
             GlobalCode::API_CHECK_NOPASS => '接口安全认证不通过',
-            GlobalCode::NO_LOGIN => '尚未登录',
-            GlobalCode::API_NOT_SAFE => '请求受限制，无法访问接口',
-            GlobalCode::TIMESTAMP_OUTTIME => '接口时间戳过期',
-            GlobalCode::OPTIONS_NOTRIGHT => '参数不正确',
-            GlobalCode::ERROR => '失败的调用',
+            GlobalCode::API_TIMEOUT => '时间戳过期',
+
+            GlobalCode::API_NOT_SAFE => '请求接口受限制',
         ];
 
         if($code !== null) {
-            return isset($strs[$code])?$strs[$code] : '未知状态';
+            return isset($strs[$code])?$strs[$code] : '非法状态，请联系管理员';
         } else {
             return '';
         }

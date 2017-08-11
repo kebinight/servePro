@@ -53,9 +53,11 @@ class SmenuTable extends Table
             'foreignKey' => 'parent_id'
         ]);
 
-        $this->hasMany('Child', [
+        $this->hasMany('Children', [
             'className' => 'Smenu',
-            'foreignKey' => 'parent_id'
+            'foreignKey' => 'parent_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
 
         $this->addBehavior('Timestamp', [

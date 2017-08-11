@@ -88,4 +88,27 @@ class RoleController extends AppController
             }
         }
     }
+
+
+    /**
+     * 删除
+     * @param int $id
+     */
+    public function delete()
+    {
+        if($this->request->is(["POST"])) {
+            $data = $this->request->data;
+            if(isset($data['id'])) {
+                $entity = $this->Srole->get($data['id']);
+                $result = $this->Srole->delete($entity);
+                if($result) {
+                    $this->Common->dealReturn(true, '操作成功');
+                } else {
+                    $this->Common->dealReturn(true, '操作失败');
+                }
+            } else {
+                $this->Common->failReturn();
+            }
+        }
+    }
 }

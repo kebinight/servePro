@@ -20,7 +20,9 @@ class UserController extends AppController
     public function index()
     {
         if($this->request->is('POST')) {
-            $users = $this->Suser->find()->map(function($row) {
+            $users = $this->Suser->find()->contain(['Srole' => function($q) {
+                return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
+            }])->map(function($row) {
                 $row->create_time = $row->create_time->i18nFormat('yyyy-MM-dd HH:mm');
                 $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
                 return $row;
@@ -68,6 +70,29 @@ class UserController extends AppController
             $role = $roleTb->find()->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
 
             $this->Common->dealReturn(true, '', ['user' => $user, 'roles' => $role]);
+        }
+    }
+
+
+    /**
+     * 删除
+     * @param int $id
+     */
+    public function delete()
+    {
+        if($this->request->is(["POST"])) {
+            $data = $this->request->data;
+            if(isset($data['id'])) {
+                $entity = $this->Suser->get($data['id']);
+                $result = $this->Suser->delete($entity);
+                if($result) {
+                    $this->Common->dealReturn(true, '操作成功');
+                } else {
+                    $this->Common->dealReturn(true, '操作失败');
+                }
+            } else {
+                $this->Common->failReturn();
+            }
         }
     }
 }

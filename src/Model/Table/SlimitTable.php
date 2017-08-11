@@ -50,7 +50,9 @@ class SlimitTable extends Table
 
         $this->hasMany('Child', [
             'className' => 'Slimit',
-            'foreignKey' => 'parent_id'
+            'foreignKey' => 'parent_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
 
         $this->addBehavior('Timestamp', [

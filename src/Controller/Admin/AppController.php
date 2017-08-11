@@ -67,11 +67,12 @@ class AppController extends Controller {
         //可指定特定key,表示指定不检测
         //-key表示指定要检测
         $this->firewall = [
-            'Home' => ['*'],
+            'Userc' => ['login']
+            /*'Home' => ['*'],
             'Menu' => ['*'],
             'Slimit' => ['*'],
             'Role' => ['*'],
-            'User' => ['*'],
+            'User' => ['*'],*/
         ];
     }
 
@@ -88,26 +89,12 @@ class AppController extends Controller {
         }
 
         $this->checkLogin();  //自动登录并检测登陆
-        $defaultPosition = implode(',', getDefalutPosition());
-        $this->coord = $this->request->cookie('coord')?$this->request->cookie('coord') : $defaultPosition;
-
         //更新用户登录信息
-        if($this->user){
+        /*if($this->user){
             $curtimestamp = time();
             $lastLtime = $this->user->login_time;
             $lastLtimestamp = (new Date($lastLtime))->timestamp;
             $lastSessionTimestamp = $this->Common->getLoginUpdateTimestamp();
-
-            //是否需要跳转到打招呼页面
-            if(!$this->request->is('lemon') && !$this->request->cookie('view_say_hi')) {
-                $this->loadComponent('Cookie');
-                $this->Cookie->config([
-                    'expires' => '+1 days',
-                    'httpOnly' => true
-                ]);
-                $this->Cookie->write('view_say_hi', true);
-                $this->redirect('/index/sayHi');
-            }
 
             //一分钟更新一次session登录信息
             if(!$lastSessionTimestamp || (($curtimestamp - $lastSessionTimestamp) >= 1 * 60)) {
@@ -131,10 +118,7 @@ class AppController extends Controller {
                     $UserTable->save($this->user);
                 }
             }
-
-            $aiTask = new Aitask();
-            $aiTask->addTask($this->user);
-        }
+        }*/
     }
 
 
@@ -145,29 +129,7 @@ class AppController extends Controller {
      * @return void
      */
     public function beforeRender(Event $event) {
-        $wxConfig = [];
-        if ($this->request->is('weixin')) {
-            $this->loadComponent('Wx');
-            $wxConfig = $this->Wx->wxconfig(['onMenuShareTimeline', 'onMenuShareAppMessage', 'scanQRCode',
-                'chooseImage', 'uploadImage', 'previewImage','getLocation','openLocation'], false);
-        }
-        $isLogin = 'no';
-        if ($this->user) {
-            $isLogin = 'yes';
-        }
-        $this->set(compact('isLogin'));
-        $this->set(compact('wxConfig'));
-        if (!array_key_exists('_serialize', $this->viewVars) &&
-            in_array($this->response->type(), ['application/json', 'application/xml'])) {
-            $this->set('_serialize', true);
-        }
-
-        if ($this->request->is('lemon')) {
-            $this->set('isApp', true);
-        }
-        if ($this->request->is('weixin')) {
-            $this->set('isWx', true);
-        }
+        //do something
     }
 
 
@@ -176,63 +138,31 @@ class AppController extends Controller {
      * @return {{}} type
      */
     private function checkLogin() {
-        $controller = $this->request->param('controller') ? $this->request->param('controller') : '*';
-        $action = $this->request->param('action') ? $this->request->param('action') : '*';
-
-        //app的静默登录
+        $rq_controller = $this->request->param('controller') ? $this->request->param('controller') : '';
+        $rq_action = $this->request->param('action');
         $this->user = $this->Common->getLoginer();
-        $this->baseLogin();
-
-        //debug(isset($this->firewall[$controller]));die;
 
         //无需登录的模块直接放行
-        if(isset($this->firewall[$controller])) {
-            $pActions = $this->firewall[$controller];
-            if(is_array($pActions)) {
-                $filterActionTmp = $action ? '-' . $action : '';
-                if(!in_array($filterActionTmp, $pActions) && (in_array('*', $pActions) || in_array($action, $pActions))) {
+        if(isset($this->firewall[$rq_controller])) {
+            $all_Actions = $this->firewall[$rq_controller];
+            if(is_array($all_Actions)) {
+                $filterActionTmp = isset($rq_action) ? '-' . $rq_action : '';
+                if(!in_array($filterActionTmp, $all_Actions)  || in_array($rq_action, $all_Actions)) {
                     return true;
                 }
+            } else if($all_Actions == '*') {
+                return true;
             }
         }
 
-        return $this->handCheckLogin();
-    }
-
-
-    /**
-     * APP静默登录
-     * 原理：app把token_uin注入到webview的cookie中，这里利用这个cookie进行静默登录
-     * 缺陷：安全性有待研究与提高
-     */
-    protected function baseLogin() {
-        if (!$this->Common->checkLogin() && $this->request->is('lemon') && $this->request->cookie('token_uin')) {
-            $UserTable = TableRegistry::get('User');
-            //如果是APP，获取user_token 自动登录
-            $user_token = $this->request->cookie('token_uin');
-            $user = $UserTable->find()->where(['user_token' => $user_token, 'enabled' => 1, 'is_del' => 0])->first();
-            //debug($user_token);tmpLog($user_token);die;
-            if ($user) {
-                $this->user = $user;
-                $this->Common->setLogin($user);
-            }
-        }
+        return $this->handleCheckLogin();
     }
 
 
     /**
      * 处理检测登陆
      */
-    protected function handCheckLogin() {
-        $this->Common->checkLoginHand();
-    }
-
-
-    /**
-     * 获取坐标
-     */
-    protected function getPosition() {
-        $position = explode(',', $this->coord);
-        return $position;
+    protected function handleCheckLogin() {
+        $this->Common->handleCheckLogin();
     }
 }
