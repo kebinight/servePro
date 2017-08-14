@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller\Admin;
+use Cake\Auth\DefaultPasswordHasher;
 use Cake\Database\Exception;
 use Cake\ORM\TableRegistry;
 use GlobalCode;
@@ -15,6 +16,30 @@ class UserController extends AppController
     {
         parent::initialize();
         $this->loadModel('Suser');
+    }
+
+
+    public function generateUser()
+    {
+        $users = $this->Suser->find()->toArray();
+        if($users) {
+            $this->Common->dealReturn(false, '不符合初始化条件');
+        }
+        $initUser = $this->Suser->newEntity([
+            'avatar' => '/admin/imgs/admin_avatar.jpg',
+            'account' => 'admin',
+            'password' => ((new DefaultPasswordHasher)->hash('132456')),
+            'nick' => '超级管理员',
+            'truename' => '系统默认',
+            'gender' => 1,
+            'status' => GlobalCode::COMMON_STATUS_ON,
+            'is_del' => GlobalCode::COMMON_STATUS_OFF
+        ]);
+
+        if($this->Suser->save($initUser)) {
+            $this->Common->dealReturn(true, '账号初始化成功');
+        }
+        $this->Common->failReturn(GlobalCode::API_ERROR, '', '账号生成失败');
     }
 
     public function index()

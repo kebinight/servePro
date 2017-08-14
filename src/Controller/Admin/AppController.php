@@ -67,12 +67,12 @@ class AppController extends Controller {
         //可指定特定key,表示指定不检测
         //-key表示指定要检测
         $this->firewall = [
-            'Userc' => ['login']
+            'Userc' => ['login'],
             /*'Home' => ['*'],
             'Menu' => ['*'],
             'Slimit' => ['*'],
-            'Role' => ['*'],
-            'User' => ['*'],*/
+            'Role' => ['*'],*/
+            'User' => ['generateUser'],
         ];
     }
 

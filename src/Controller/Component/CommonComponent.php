@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Component;
 
+use Cake\Auth\DefaultPasswordHasher;
 use Cake\Controller\Component;
 use Cake\Controller\ComponentRegistry;
 use Cake\ORM\TableRegistry;
@@ -13,10 +14,9 @@ use GlobalCode;
  */
 class CommonComponent extends Component
 {
-    const ADMIN_LOGIN_LOG = 'Admin.login.log';         //登录行为记录
-    const ADMIN_LOGIN_SESSION = 'Admin.login.info';         //管理员登录信息
+    const ADMIN_LOGIN_SESSION = 'ADMIN_LOGIN_SESSION';         //管理员登录信息
 
-    const ADMIN_LOGIN_ERROR_COUNT = 'Admin.login.error.count';  //登录失败次数统计
+    const ADMIN_LOGIN_ERROR_COUNT = 'ADMIN_LOGIN_COUNT';  //登录失败次数统计
     /**
      * Default configuration.
      * @var array
@@ -45,9 +45,14 @@ class CommonComponent extends Component
         }
 
         //跨域访问
-        $response = $this->response->cors($this->request)->allowCredentials()
+        $response = $this->response;
+        /*$response = $this->response->cors($this->request)
             ->allowHeaders(["Access-Control-Allow-Headers" => "Content-Type,Access-Token"])
-            ->allowMethods(['GET', 'POST', 'OPTIONS'])->allowOrigin('*')->build();
+            ->allowMethods(['GET', 'POST', 'OPTIONS'])
+            ->allowCredentials()
+            ->allowOrigin('http://localhost')
+            ->allowOrigin('*')
+            ->build();*/
         $response->type($format);
         $response->body($returnData);
         $response->charset('utf-8');
@@ -188,9 +193,8 @@ class CommonComponent extends Component
      */
     public function loginFirewallCheck()
     {
-
-        $loginLog = $this->getLoginLog();
-        if($loginLog[self::ADMIN_LOGIN_ERROR_COUNT] > 3) {
+        tmpLog($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT));
+        if($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT) > 3) {
             $this->failReturn(GlobalCode::API_NOT_SAFE, '', '登录失败次数过多，请稍候再试');
         }
     }
@@ -200,25 +204,22 @@ class CommonComponent extends Component
      * 获取登录行为记录
      * @param array $loginfo
      */
-    public function getLoginLog($key = null)
+    public function getLoginLog($key)
     {
-        $loginfo =  $this->request->session()->read(self::ADMIN_LOGIN_LOG);
-        if($key) {
-            return isset($loginfo[$key]) ? $loginfo[$key] : '';
-        } else {
-            return $loginfo;
-        }
+        tmpLog('get:' . $key);
+        return $this->request->session()->read($key);
     }
 
 
     /**
      * 登录行为记录
+     * 这里封装起来是因为以后可能会使用到其他存储方式
      * @param array $loginfo
      */
-    public function setloginLog($loginfo = [])
+    public function setloginLog($key, $value)
     {
-        $loginInfo = $this->getLoginLog() ? $this->getLoginLog() : [];
-        $this->request->session()->write(self::ADMIN_LOGIN_LOG, array_merge($loginInfo, $loginfo));
+        tmpLog('write:' . $key . '| value:' . $value);
+        $this->request->session()->write($key, $value);
     }
 
 
@@ -252,13 +253,19 @@ class CommonComponent extends Component
             $this->failReturn(GlobalCode::API_OPTIONS, 'parameter of "account" or "password" is needed!');
         }
 
+        $account = $data['account'];
+        $pwd = $data['pwd'];
         $userTb = TableRegistry::get('Suser');
-        $user = $userTb->find()->where(['account' => $data['account']])->first();
+        $user = $userTb->find()->where(['account' => $account])->first();
         if($user) {
-
+            if($user->password == ((new DefaultPasswordHasher)->hash($pwd))) {
+                $this->setLoginInfo($user);
+            }
         } else {
             $errorCount = $this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT) ? $this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT) : 0;
-            $this->setloginLog([self::ADMIN_LOGIN_ERROR_COUNT => $errorCount + 1]);
+            tmpLog($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT));
+            $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, $errorCount + 1);
+            tmpLog($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT));
             $this->failReturn(GlobalCode::API_NO_ACCOUNT, '', '账号不存在!');
         }
     }
