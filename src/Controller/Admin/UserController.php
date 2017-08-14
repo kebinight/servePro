@@ -28,7 +28,7 @@ class UserController extends AppController
         $initUser = $this->Suser->newEntity([
             'avatar' => '/admin/imgs/admin_avatar.jpg',
             'account' => 'admin',
-            'password' => ((new DefaultPasswordHasher)->hash('132456')),
+            'password' => '123456',
             'nick' => '超级管理员',
             'truename' => '系统默认',
             'gender' => 1,

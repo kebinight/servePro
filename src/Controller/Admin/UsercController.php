@@ -12,12 +12,6 @@ class UsercController extends AppController
      */
     public function login() {
         if ($this->request->is(['POST'])) {
-            $count = $this->request->session()->read('count');
-            $count = $count ? $count : 0;
-            $this->request->session()->write('count', $count + 1);
-            tmpLog('cookie:-------------');
-            tmpLog(json_encode($this->request->cookies));
-            $this->Common->dealReturn(true, '--' . $count);
             $account = $this->request->data('account');
             $pwd = $this->request->data('pwd');
             //带有redirect_url参数的登录链接则需要在登录完成后跳转到该链接

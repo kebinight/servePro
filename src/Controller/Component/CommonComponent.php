@@ -16,6 +16,7 @@ class CommonComponent extends Component
 {
     const ADMIN_LOGIN_SESSION = 'ADMIN_LOGIN_SESSION';         //管理员登录信息
 
+    const ADMIN_LOGIN_LOG = 'ADMIN_LOGIN_LOG';              //登录行为统计
     const ADMIN_LOGIN_ERROR_COUNT = 'ADMIN_LOGIN_COUNT';  //登录失败次数统计
     /**
      * Default configuration.
@@ -45,14 +46,13 @@ class CommonComponent extends Component
         }
 
         //跨域访问
-        $response = $this->response;
-        /*$response = $this->response->cors($this->request)
-            ->allowHeaders(["Access-Control-Allow-Headers" => "Content-Type,Access-Token"])
+        $response = $this->response->cors($this->request)
+            ->allowHeaders(["Access-Control-Allow-Headers" => "Origin, X-Requested-With, Content-Type, Accept, user-agent, Token, woami"])
             ->allowMethods(['GET', 'POST', 'OPTIONS'])
             ->allowCredentials()
-            ->allowOrigin('http://localhost')
-            ->allowOrigin('*')
-            ->build();*/
+            ->allowOrigin('http://pro-admin.cn:8080')
+            //->allowOrigin('*')
+            ->build();
         $response->type($format);
         $response->body($returnData);
         $response->charset('utf-8');
@@ -193,7 +193,6 @@ class CommonComponent extends Component
      */
     public function loginFirewallCheck()
     {
-        tmpLog($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT));
         if($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT) > 3) {
             $this->failReturn(GlobalCode::API_NOT_SAFE, '', '登录失败次数过多，请稍候再试');
         }
@@ -206,8 +205,7 @@ class CommonComponent extends Component
      */
     public function getLoginLog($key)
     {
-        tmpLog('get:' . $key);
-        return $this->request->session()->read($key);
+        return $this->request->session()->check($key) ? $this->request->session()->read($key) : null;
     }
 
 
@@ -218,7 +216,6 @@ class CommonComponent extends Component
      */
     public function setloginLog($key, $value)
     {
-        tmpLog('write:' . $key . '| value:' . $value);
         $this->request->session()->write($key, $value);
     }
 
@@ -230,7 +227,7 @@ class CommonComponent extends Component
      */
     public function loginHandle($data = [], $type = 1, $isNative = false)
     {
-        $this->loginFirewallCheck();
+        //$this->loginFirewallCheck();
         if(!$type) {
             $this->failReturn(GlobalCode::API_OPTIONS, 'parameter of "type" is needed!');
         }
@@ -258,14 +255,21 @@ class CommonComponent extends Component
         $userTb = TableRegistry::get('Suser');
         $user = $userTb->find()->where(['account' => $account])->first();
         if($user) {
-            if($user->password == ((new DefaultPasswordHasher)->hash($pwd))) {
+            if((new DefaultPasswordHasher)->check($pwd, $user->password)) {
                 $this->setLoginInfo($user);
+                $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, 0);
+                $this->response->cookie([
+                    'name' => 'isLogin',
+                    'value' => true,
+                    'expire' => time() + 86400
+                ]);
+                $this->dealReturn(true, '登录成功', ['cb' => '/menu-index', 'userinfo' => ['nick' => $user->nick]]);
+            } else {
+                $this->dealReturn(false, '账号或密码不正确!');
             }
         } else {
-            $errorCount = $this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT) ? $this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT) : 0;
-            tmpLog($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT));
+            $errorCount = ($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT) !== null) ? $this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT) : 0;
             $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, $errorCount + 1);
-            tmpLog($this->getLoginLog(self::ADMIN_LOGIN_ERROR_COUNT));
             $this->failReturn(GlobalCode::API_NO_ACCOUNT, '', '账号不存在!');
         }
     }
