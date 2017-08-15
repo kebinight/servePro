@@ -24,59 +24,65 @@ class MenuController extends AppController
      */
     public function getMenu()
     {
-        $menus = $this->Smenu->find('threaded')->where(['status' => 1])->toArray();
-        if(!$menus) {
-            $initMenu = $this->Smenu->newEntities([
-                [
-                    'name' => '系统设置',
-                    'node' => 'base-set',
-                    'parent_id' => 0,
-                    'rank' => 0,
-                    'status' => 1,
-                    'remark' => '系统自动初始化基础设置菜单',
-                    'children' => [
-                        [
-                            'name' => '权限管理',
-                            'node' => 'limit-index',
-                            'parent_id' => 0,
-                            'rank' => 0,
-                            'status' => 1,
-                            'remark' => '系统自动初始化权限管理菜单',
-                        ],
-                        [
-                            'name' => '角色管理',
-                            'node' => 'role-index',
-                            'parent_id' => 0,
-                            'rank' => 0,
-                            'status' => 1,
-                            'remark' => '系统自动初始化角色管理菜单',
-                        ],
-                        [
-                            'name' => '管理员管理',
-                            'node' => 'user-index',
-                            'parent_id' => 0,
-                            'rank' => 0,
-                            'status' => 1,
-                            'remark' => '系统自动初始化管理员管理菜单',
-                        ],
-                        [
-                            'name' => '菜单管理',
-                            'node' => 'menu-index',
-                            'parent_id' => 0,
-                            'rank' => 0,
-                            'status' => 1,
-                            'remark' => '系统自动初始化基础设置菜单',
+        if($this->request->is(['POST'])) {
+            $user = $this->user;
+            if($user) {
+
+            }
+            $menus = $this->Smenu->find('threaded')->where(['status' => 1])->toArray();
+            if(!$menus) {
+                $initMenu = $this->Smenu->newEntities([
+                    [
+                        'name' => '系统设置',
+                        'node' => 'base-set',
+                        'parent_id' => 0,
+                        'rank' => 0,
+                        'status' => 1,
+                        'remark' => '系统自动初始化基础设置菜单',
+                        'children' => [
+                            [
+                                'name' => '权限管理',
+                                'node' => 'limit-index',
+                                'parent_id' => 0,
+                                'rank' => 0,
+                                'status' => 1,
+                                'remark' => '系统自动初始化权限管理菜单',
+                            ],
+                            [
+                                'name' => '角色管理',
+                                'node' => 'role-index',
+                                'parent_id' => 0,
+                                'rank' => 0,
+                                'status' => 1,
+                                'remark' => '系统自动初始化角色管理菜单',
+                            ],
+                            [
+                                'name' => '管理员管理',
+                                'node' => 'user-index',
+                                'parent_id' => 0,
+                                'rank' => 0,
+                                'status' => 1,
+                                'remark' => '系统自动初始化管理员管理菜单',
+                            ],
+                            [
+                                'name' => '菜单管理',
+                                'node' => 'menu-index',
+                                'parent_id' => 0,
+                                'rank' => 0,
+                                'status' => 1,
+                                'remark' => '系统自动初始化基础设置菜单',
+                            ]
                         ]
                     ]
-                ]
-            ]);
-            if($res = $this->Smenu->saveMany($initMenu, ['associated' => ['Children']])) {
-                $this->Common->dealReturn(true, '', ['menu' => $initMenu]);
-            } else {
-                $this->Common->failReturn(GlobalCode::API_ERROR, '数据库操作有问题，请检查', '菜单初始化失败');
+                ]);
+                if($res = $this->Smenu->saveMany($initMenu, ['associated' => ['Children']])) {
+                    $this->Common->dealReturn(true, '', ['menu' => $initMenu]);
+                } else {
+                    $this->Common->failReturn(GlobalCode::API_ERROR, '数据库操作有问题，请检查', '菜单初始化失败');
+                }
             }
+            $this->Common->dealReturn(true, '', ['menu' => $menus]);
         }
-        $this->Common->dealReturn(true, '', ['menu' => $menus]);
     }
 
 

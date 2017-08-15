@@ -89,6 +89,8 @@ class AppController extends Controller {
         }
 
         $this->checkLogin();  //自动登录并检测登陆
+        $this->checkLimit();  //检查用户权限
+
         //更新用户登录信息
         /*if($this->user){
             $curtimestamp = time();
@@ -160,9 +162,18 @@ class AppController extends Controller {
 
 
     /**
+     * 检查权限
+     */
+    protected function checkLimit()
+    {
+        //$this->common->dealReturn();
+    }
+
+    /**
      * 处理检测登陆
      */
-    protected function handleCheckLogin() {
+    protected function handleCheckLogin()
+    {
         $this->Common->handleCheckLogin();
     }
 }

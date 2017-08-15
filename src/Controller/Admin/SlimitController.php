@@ -31,7 +31,7 @@ class SlimitController extends AppController
             $id = $this->request->data('id');
             $slimit = '';
             if($id) {
-                $slimit = $this->Slimit->find()->map(function($row) {
+                $slimit = $this->Slimit->find()->where(['id' => $id])->map(function($row) {
                     $row->create_time = $row->create_time->i18nFormat('yyyy-MM-dd HH:mm');
                     $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
                     return $row;
