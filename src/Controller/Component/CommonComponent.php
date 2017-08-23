@@ -253,9 +253,10 @@ class CommonComponent extends Component
         $account = $data['account'];
         $pwd = $data['pwd'];
         $userTb = TableRegistry::get('Suser');
-        $user = $userTb->find()->where(['account' => $account])->first();
+        $user = $userTb->find()->select(['password'])->where(['account' => $account])->first();
         if($user) {
             if((new DefaultPasswordHasher)->check($pwd, $user->password)) {
+                $user  = $userTb->find()->contain([])->where)();
                 $this->setLoginInfo($user);
                 $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, 0);
                 $this->response->cookie([

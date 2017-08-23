@@ -27,7 +27,7 @@ class MenuController extends AppController
         if($this->request->is(['POST'])) {
             $user = $this->user;
             if($user) {
-
+                $menuRoleTb = TableRegistry::get('SMenuRole');
             }
             $menus = $this->Smenu->find('threaded')->where(['status' => 1])->toArray();
             if(!$menus) {
