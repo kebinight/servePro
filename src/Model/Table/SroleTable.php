@@ -51,6 +51,13 @@ class SroleTable extends Table
             //'className' => 'Slimit'
         ]);
 
+        //角色对应菜单
+        $this->belongsToMany('Smenu', [
+            'through' => 'SMenuRole',
+            'foreignKey' => 'role_id',
+            'targetForeignKey' => 'menu_id'
+        ]);
+
         $this->addBehavior('Timestamp', [
             'events' => [
                 'Model.beforeSave' => [

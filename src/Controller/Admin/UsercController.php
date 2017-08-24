@@ -11,6 +11,28 @@ class UsercController extends AppController
      * 登录
      */
     public function login() {
+
+        $limits = [
+            [
+                ['name' => 'controller1'],
+                ['name' => 'controller2'],
+                ['name' => 'controller3'],
+            ],
+            [
+                ['name' => 'controller3'],
+                ['name' => 'controller4'],
+                ['name' => 'controller5'],
+            ]
+        ];
+
+        $newLimits = [];
+        foreach ($limits as $item) {
+            $newLimits = array_merge($newLimits, $item);
+        }
+
+        debug($newLimits);
+        die();
+
         if ($this->request->is(['POST'])) {
             $account = $this->request->data('account');
             $pwd = $this->request->data('pwd');

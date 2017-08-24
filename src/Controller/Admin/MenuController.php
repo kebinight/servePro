@@ -29,7 +29,7 @@ class MenuController extends AppController
             if($user) {
                 $menuRoleTb = TableRegistry::get('SMenuRole');
             }
-            $menus = $this->Smenu->find('threaded')->where(['status' => 1])->toArray();
+            $menus = $this->Smenu->find('threaded')->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
             if(!$menus) {
                 $initMenu = $this->Smenu->newEntities([
                     [

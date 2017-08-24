@@ -234,7 +234,7 @@ class CommonComponent extends Component
         $type = intval($type);
         switch ($type) {
             case 1 :
-                $this->handleLogin($data);
+                $this->doCommonLogin($data);
                 break;
             case 2 :
                 break;
@@ -244,7 +244,11 @@ class CommonComponent extends Component
     }
 
 
-    public function handleLogin($data)
+    /**
+     * 处理普通登录（账号密码方式）
+     * @param $data
+     */
+    public function doCommonLogin($data)
     {
         if(!isset($data['account']) || !isset($data['pwd'])) {
             $this->failReturn(GlobalCode::API_OPTIONS, 'parameter of "account" or "password" is needed!');
@@ -253,18 +257,14 @@ class CommonComponent extends Component
         $account = $data['account'];
         $pwd = $data['pwd'];
         $userTb = TableRegistry::get('Suser');
-        $user = $userTb->find()->select(['password'])->where(['account' => $account])->first();
+        $user = $userTb->find()->select(['id', 'password'])->where([
+            'account' => $account,
+            'status' => GlobalCode::COMMON_STATUS_ON,
+            'is_del' => GlobalCode::COMMON_STATUS_OFF
+        ])->first();
         if($user) {
             if((new DefaultPasswordHasher)->check($pwd, $user->password)) {
-                $user  = $userTb->find()->contain([])->where)();
-                $this->setLoginInfo($user);
-                $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, 0);
-                $this->response->cookie([
-                    'name' => 'isLogin',
-                    'value' => true,
-                    'expire' => time() + 86400
-                ]);
-                $this->dealReturn(true, '登录成功', ['cb' => '/menu-index', 'userinfo' => ['nick' => $user->nick]]);
+                $this->login($user->id);
             } else {
                 $this->dealReturn(false, '账号或密码不正确!');
             }
@@ -273,5 +273,49 @@ class CommonComponent extends Component
             $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, $errorCount + 1);
             $this->failReturn(GlobalCode::API_NO_ACCOUNT, '', '账号不存在!');
         }
+    }
+
+
+    /**
+     * 登录验证成功后需要做的后续操作
+     * @param $userId
+     */
+    protected function login($userId)
+    {
+        $userTb = TableRegistry::get('Suser');
+        $roleTb = TableRegistry::get('Srole');
+        $user  = $userTb->find()->contain(['Srole.Slimit' => function($q) {
+            return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
+        }, 'Srole.Smenu' => function($q) {
+            return $q->find('threaded')->where(['status' => GlobalCode::COMMON_STATUS_ON]);
+        }])->where(['id' => $userId])->first();
+
+        $srole = $user->srole;
+        //整理用户权限和用户菜单
+        $climits = [];  //存放controller的集合，并存放了对应的alimits集合的键值
+        $alimits = [];  //存放action的集合
+
+        $menus = [];
+        foreach ($srole as $item) {
+            foreach ($item->slimit as $litem) {
+                if($litem->pid === 0) { //父节点表示controller
+                    $climits[$litem->node] = $litem->id;
+                } else { //非父节点表示action
+                    $alimits[$litem->pid][$litem->node] = true;
+                }
+            }
+
+            foreach ($item->smenu as $mitem) {
+            }
+        }
+
+        $this->setLoginInfo($user);
+        $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, 0);
+        $this->response->cookie([
+            'name' => 'isLogin',
+            'value' => true,
+            'expire' => time() + 86400
+        ]);
+        $this->dealReturn(true, '登录成功', ['data' => $user, 'cb' => '/menu-index', 'userinfo' => ['nick' => $user->nick]]);
     }
 }

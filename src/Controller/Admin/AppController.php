@@ -38,11 +38,17 @@ class AppController extends Controller {
      */
     private $firewall;
     protected $user;
+
     /**
      * 登录坐标
-     * @var type
      */
     protected $coord;
+
+    /**
+     * 请求的controller和action
+     */
+    protected $rq_controller;
+    protected $rq_action;
 
     /**
      * Initialization hook method.
@@ -61,6 +67,10 @@ class AppController extends Controller {
         $this->loadComponent('Common');
         $this->loadComponent('Flash');
         $this->loadComponent('Push');
+
+        $this->rq_controller = $this->request->param('controller') ? $this->request->param('controller') : '';
+        $this->rq_action = $this->request->param('action');
+
         //无需登录的模块，格式为[controller名, action名]
         //不指定表示要检测
         //*代表全部不检测
@@ -140,16 +150,13 @@ class AppController extends Controller {
      * @return {{}} type
      */
     private function checkLogin() {
-        $rq_controller = $this->request->param('controller') ? $this->request->param('controller') : '';
-        $rq_action = $this->request->param('action');
-        $this->user = $this->Common->getLoginer();
 
         //无需登录的模块直接放行
-        if(isset($this->firewall[$rq_controller])) {
-            $all_Actions = $this->firewall[$rq_controller];
+        if(isset($this->firewall[$this->rq_controller])) {
+            $all_Actions = $this->firewall[$this->rq_controller];
             if(is_array($all_Actions)) {
-                $filterActionTmp = isset($rq_action) ? '-' . $rq_action : '';
-                if(!in_array($filterActionTmp, $all_Actions)  || in_array($rq_action, $all_Actions)) {
+                $filterActionTmp = isset($this->rq_action) ? '-' . $this->rq_action : '';
+                if(!in_array($filterActionTmp, $all_Actions)  || in_array($this->rq_action, $all_Actions)) {
                     return true;
                 }
             } else if($all_Actions == '*') {
@@ -157,7 +164,8 @@ class AppController extends Controller {
             }
         }
 
-        return $this->handleCheckLogin();
+        $this->handleCheckLogin();
+        $this->user = $this->Common->getLoginer();
     }
 
 
@@ -167,6 +175,8 @@ class AppController extends Controller {
     protected function checkLimit()
     {
         //$this->common->dealReturn();
+
+
     }
 
     /**
