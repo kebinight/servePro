@@ -42,6 +42,13 @@ class SlimitTable extends Table
             'foreignKey' => 'admin_id'
         ]);
 
+        //权限对应角色
+        $this->belongsToMany('Srole', [
+            'through' => 'SRoleLimit',
+            'foreignKey' => 'limit_id',
+            'targetForeignKey' => 'role_id'
+        ]);
+
         //自关联
         $this->belongsTo('Parent', [
             'className' => 'Slimit',

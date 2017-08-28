@@ -148,14 +148,48 @@ class CommonComponent extends Component
 
     /**
      * session记录用户登录信息
+     * 登录信息包括：
+     * 1) 用户基本信息
+     * 2) 用户菜单权限
+     * 3) 用户权限
+     * 4) 记录时间
      * @param $user
      */
-    public function setLoginInfo($user)
+    public function setLoginInfo($userId)
     {
         $res = false;
         try {
+            $roles = [];
+            $menus = [];
+            $limits = [];
+
+            $userTb = TableRegistry::get('Suser');
+            $menuTb = TableRegistry::get('Smenu');
+            $limitTb = TableRegistry::get('Slimit');
+            $user  = $userTb->find()->contain(['Srole'])->where(['id' => $userId])->first();
+
+            foreach ($user->srole as $item) {
+                $roles[] = $item->id;
+            }
+            if($roles) {
+                $menus = $menuTb->find('threaded')->innerJoinWith('Srole', function($q) use ($roles){
+                    return $q->where(['Srole.id IN' => $roles]);
+                })->distinct('Smenu.id')->where(['Smenu.status' => GlobalCode::COMMON_STATUS_ON])->orderDesc('Smenu.rank')->toArray();
+
+                $limits = $limitTb->find('threaded')->innerJoinWith('Srole', function($q) use ($roles) {
+                    return $q->where(['Srole.id IN' => $roles]);
+                })->distinct('Slimit.id')->where(['Slimit.status' => GlobalCode::COMMON_STATUS_ON])->toArray();
+            }
+
+            $limits_tmp = [];
+            foreach ($limits as $limit) {
+                $limits_tmp[$limit->node] = $limit;
+            }
+
             $loginSession = [
                 'user_info' => $user,
+                'user_menus' => $menus,
+                'user_limits' => $limits,
                 'timestamp' => time()
             ];
             $this->request->session()->write(self::ADMIN_LOGIN_SESSION, $loginSession);
@@ -172,19 +206,9 @@ class CommonComponent extends Component
      * 刷新内存中的登录信息
      * @return bool
      */
-    public function updateLoginInfo($newUserinfo = null)
+    public function updateLoginInfo($userId)
     {
-        $uTb = TableRegistry::get('Suser');
-        $user = $this->getLoginer();
-        if($user) {
-            if(!$newUserinfo) {
-                $user = $uTb->find()->where(['id' => $user->id])->first();
-            } else {
-                $user = $newUserinfo;
-            }
-            return $this->setLoginInfo($user);
-        }
-        return false;
+        return $this->setLoginInfo($userId);
     }
 
 
@@ -282,34 +306,7 @@ class CommonComponent extends Component
      */
     protected function login($userId)
     {
-        $userTb = TableRegistry::get('Suser');
-        $roleTb = TableRegistry::get('Srole');
-        $user  = $userTb->find()->contain(['Srole.Slimit' => function($q) {
-            return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
-        }, 'Srole.Smenu' => function($q) {
-            return $q->find('threaded')->where(['status' => GlobalCode::COMMON_STATUS_ON]);
-        }])->where(['id' => $userId])->first();
-
-        $srole = $user->srole;
-        //整理用户权限和用户菜单
-        $climits = [];  //存放controller的集合，并存放了对应的alimits集合的键值
-        $alimits = [];  //存放action的集合
-
-        $menus = [];
-        foreach ($srole as $item) {
-            foreach ($item->slimit as $litem) {
-                if($litem->pid === 0) { //父节点表示controller
-                    $climits[$litem->node] = $litem->id;
-                } else { //非父节点表示action
-                    $alimits[$litem->pid][$litem->node] = true;
-                }
-            }
-
-            foreach ($item->smenu as $mitem) {
-            }
-        }
-
-        $this->setLoginInfo($user);
+        $this->setLoginInfo($userId);
         $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, 0);
         $this->response->cookie([
             'name' => 'isLogin',
