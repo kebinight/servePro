@@ -16,19 +16,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Pack\Aitask;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-use Cake\I18n\Date;
-use Cake\ORM\TableRegistry;
+use GlobalCode;
 
 /**
  * Application Controller
- * Add your application-wide methods in the class below, your controllers
- * will inherit them.
- * @property \App\Controller\Component\UtilComponent $Util
  * @property \App\Controller\Component\WxComponent $Wx
- * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
+ * @property \App\Controller\Component\CommonComponent $Common
  */
 class AppController extends Controller {
 
@@ -169,8 +164,6 @@ class AppController extends Controller {
         }
         $this->handleCheckLogin();
         $this->user = $this->Common->getLoginer();
-        tmpLog('-------------');
-        tmpLog($this->user);
     }
 
 
@@ -179,9 +172,16 @@ class AppController extends Controller {
      */
     protected function checkLimit()
     {
-        //$this->common->dealReturn();
-
-
+        //$limits = Cache::read();
+        $user_limits = $this->Common->getLoginSession('user_limits');
+        if(isset($user_limits[$this->rq_controller])) {
+            $action_limits = $user_limits[$this->rq_controller];
+            if(!isset($action_limits[$this->rq_action])) {
+                $this->Common->failReturn(GlobalCode::API_NO_LIMIT);
+            }
+        } else {
+            $this->Common->failReturn(GlobalCode::API_NO_LIMIT);
+        }
     }
 
     /**

@@ -25,4 +25,15 @@ class UsercController extends AppController
             $this->Common->loginHandle($data);
         }
     }
+
+
+    /**
+     * 退出登录
+     */
+    public function logout() {
+
+        if ($this->request->is(['POST'])) {
+            $this->Common->doLogout();
+        }
+    }
 }

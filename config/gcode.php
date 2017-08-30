@@ -31,6 +31,7 @@ class GlobalCode {
     const API_TIMEOUT           = 10201;  //接口时间戳过期
 
     const API_NOT_SAFE          = 10300;  //请求受限制，无法访问接口
+    const API_NO_LIMIT          = 10301;  //请求受限制，缺少访问权限
 
     //其他业务类状态(> 20000)
     /**
@@ -62,6 +63,7 @@ class GlobalCode {
             GlobalCode::API_TIMEOUT => '时间戳过期',
 
             GlobalCode::API_NOT_SAFE => '请求接口受限制',
+            GlobalCode::API_NO_LIMIT => '缺少访问权限',
         ];
 
         if($code !== null) {

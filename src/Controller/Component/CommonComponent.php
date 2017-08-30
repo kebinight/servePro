@@ -186,6 +186,11 @@ class CommonComponent extends Component
 
             $limits_tmp = [];
             foreach ($limits as $limit) {
+                $child_tmp = [];
+                foreach ($limit->children as $item) {
+                    $child_tmp[$item->node] = $item;
+                }
+                $limit->children = $child_tmp;
                 $limits_tmp[$limit->node] = $limit;
             }
 
@@ -193,7 +198,7 @@ class CommonComponent extends Component
             $loginSession = [
                 'user_info' => $user,
                 'user_menus' => $menus,
-                'user_limits' => $limits,
+                'user_limits' => $limits_tmp,
                 'timestamp' => time()
             ];
             $this->request->session()->write(self::ADMIN_LOGIN_SESSION, $loginSession);
@@ -305,6 +310,16 @@ class CommonComponent extends Component
 
 
     /**
+     * 退出登录
+     */
+    public function doLogout()
+    {
+        $this->request->session()->write(self::ADMIN_LOGIN_SESSION, '');
+        $this->dealReturn(true, '成功退出');
+    }
+
+
+    /**
      * 登录验证成功后需要做的后续操作
      * @param $userId
      */
@@ -319,6 +334,13 @@ class CommonComponent extends Component
             'value' => true,
             'expire' => time() + 86400
         ]);
-        $this->dealReturn(true, '登录成功', ['data' => $user, 'cb' => '/menu-index', 'userinfo' => ['nick' => $user->nick]]);
+        $this->dealReturn(true, '登录成功', [
+            'data' => $user,
+            'cb' => '/menu-index',
+            'userinfo' => [
+                'nick' => $user->nick,
+                'avatar' => generateImgUrl('/mobile/images/m_avatar.png')
+            ]
+        ]);
     }
 }
