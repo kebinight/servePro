@@ -25,11 +25,7 @@ class MenuController extends AppController
     public function getMenu()
     {
         if($this->request->is(['POST'])) {
-            $user = $this->user;
-            if($user) {
-                $menuRoleTb = TableRegistry::get('SMenuRole');
-            }
-            $menus = $this->Smenu->find('threaded')->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
+            /*$menus = $this->Smenu->find('threaded')->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
             if(!$menus) {
                 $initMenu = $this->Smenu->newEntities([
                     [
@@ -80,7 +76,9 @@ class MenuController extends AppController
                 } else {
                     $this->Common->failReturn(GlobalCode::API_ERROR, '数据库操作有问题，请检查', '菜单初始化失败');
                 }
-            }
+            }*/
+
+            $menus = $this->Common->getLoginSession('user_menus');
             $this->Common->dealReturn(true, '', ['menu' => $menus]);
         }
     }
@@ -139,7 +137,8 @@ class MenuController extends AppController
             }
 
             if($this->Smenu->save($newMenu)) {
-                $this->Common->dealReturn(true, '操作成功');
+                $this->Common->setLoginInfo($this->user->id);
+                $this->Common->dealReturn(true, '操作成功', ['reload' => true]);
             } else {
                 debug($newMenu);
                 $this->Common->dealReturn(false, '操作失败');
@@ -160,7 +159,8 @@ class MenuController extends AppController
                 $entity = $this->Smenu->get($data['id']);
                 $result = $this->Smenu->delete($entity);
                 if($result) {
-                    $this->Common->dealReturn(true, '操作成功');
+                    $this->Common->setLoginInfo($this->user->id);
+                    $this->Common->dealReturn(true, '操作成功', ['reload' => true]);
                 } else {
                     $this->Common->dealReturn(true, '操作失败');
                 }

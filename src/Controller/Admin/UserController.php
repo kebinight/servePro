@@ -69,7 +69,10 @@ class UserController extends AppController
             }
 
             if($this->Suser->save($newUser)) {
-                $this->Common->dealReturn(true, '操作成功');
+                if($this->user->id == $newUser->id) {
+                    $this->Common->setLoginInfo($this->user->id);
+                }
+                $this->Common->dealReturn(true, '操作成功', [ 'reload' => true ]);
             } else {
                 $this->Common->dealReturn(false, '操作失败');
             }

@@ -73,9 +73,8 @@ class AppController extends Controller {
 
         //无需登录的模块，格式为[controller名, action名]
         //不指定表示要检测
-        //*代表全部不检测
         //可指定特定key,表示指定不检测
-        //-key表示指定要检测
+        //存在 "-" 则表示反过来，即有填写的要检测，没有填写的就不检测（默认是有填写的不检测，没有填写的就检测）
         $this->firewall = [
             'Userc' => ['login'],
             /*'Home' => ['*'],
@@ -97,7 +96,6 @@ class AppController extends Controller {
         if($this->request->is('OPTIONS')) {
             return $this->Common->dealReturn();
         }
-
         $this->checkLogin();  //自动登录并检测登陆
         $this->checkLimit();  //检查用户权限
 
@@ -155,17 +153,24 @@ class AppController extends Controller {
         if(isset($this->firewall[$this->rq_controller])) {
             $all_Actions = $this->firewall[$this->rq_controller];
             if(is_array($all_Actions)) {
-                $filterActionTmp = isset($this->rq_action) ? '-' . $this->rq_action : '';
-                if(!in_array($filterActionTmp, $all_Actions)  || in_array($this->rq_action, $all_Actions)) {
-                    return true;
+                //如果存在-则检测规则反过来
+                if(in_array('-', $all_Actions)) {
+                    if(!in_array($this->rq_action, $all_Actions)) {
+                        return true;
+                    }
+                } else {
+                    if(in_array($this->rq_action, $all_Actions)) {
+                        return true;
+                    }
                 }
-            } else if($all_Actions == '*') {
+            } else if('*' == $all_Actions){
                 return true;
             }
         }
-
         $this->handleCheckLogin();
         $this->user = $this->Common->getLoginer();
+        tmpLog('-------------');
+        tmpLog($this->user);
     }
 
 

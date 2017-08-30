@@ -129,9 +129,13 @@ class CommonComponent extends Component
     /**
      * 获取登录信息
      */
-    public function getLoginSession()
+    public function getLoginSession($key = null)
     {
-        return $this->request->session()->read(self::ADMIN_LOGIN_SESSION);
+        $loginSession = $this->request->session()->read(self::ADMIN_LOGIN_SESSION);
+        if($key !== null) {
+            return isset($loginSession[$key]) ? $loginSession[$key] : null;
+        }
+        return $loginSession;
     }
 
 
@@ -141,8 +145,8 @@ class CommonComponent extends Component
      */
     public function getLoginer()
     {
-        $loginInfo = $this->getLoginSession();
-        return $loginInfo['user_info'];
+        $loginInfo = $this->getLoginSession('user_info');
+        return $loginInfo;
     }
 
 
@@ -157,7 +161,7 @@ class CommonComponent extends Component
      */
     public function setLoginInfo($userId)
     {
-        $res = false;
+        $res = null;
         try {
             $roles = [];
             $menus = [];
@@ -175,7 +179,6 @@ class CommonComponent extends Component
                 $menus = $menuTb->find('threaded')->innerJoinWith('Srole', function($q) use ($roles){
                     return $q->where(['Srole.id IN' => $roles]);
                 })->distinct('Smenu.id')->where(['Smenu.status' => GlobalCode::COMMON_STATUS_ON])->orderDesc('Smenu.rank')->toArray();
-
                 $limits = $limitTb->find('threaded')->innerJoinWith('Srole', function($q) use ($roles) {
                     return $q->where(['Srole.id IN' => $roles]);
                 })->distinct('Slimit.id')->where(['Slimit.status' => GlobalCode::COMMON_STATUS_ON])->toArray();
@@ -186,6 +189,7 @@ class CommonComponent extends Component
                 $limits_tmp[$limit->node] = $limit;
             }
 
+            unset($user->srole);
             $loginSession = [
                 'user_info' => $user,
                 'user_menus' => $menus,
@@ -193,7 +197,7 @@ class CommonComponent extends Component
                 'timestamp' => time()
             ];
             $this->request->session()->write(self::ADMIN_LOGIN_SESSION, $loginSession);
-            $res = true;
+            $res = $user;
         } catch (\Cake\Core\Exception\Exception $e) {
             runLog('session记录用户登录信息失败', json_encode($e->getMessage()), 'user_id:' . $user->id);
         } finally {
@@ -306,7 +310,9 @@ class CommonComponent extends Component
      */
     protected function login($userId)
     {
-        $this->setLoginInfo($userId);
+        $user = $this->setLoginInfo($userId);
+        if (!$user) $this->failReturn(GlobalCode::API_ERROR, '', '登录失败');
+
         $this->setloginLog(self::ADMIN_LOGIN_ERROR_COUNT, 0);
         $this->response->cookie([
             'name' => 'isLogin',

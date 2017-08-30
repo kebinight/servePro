@@ -59,7 +59,8 @@ class SlimitController extends AppController
             }
 
             if($this->Slimit->save($newLimit)) {
-                $this->Common->dealReturn(true, '操作成功', ['action' => $newLimit]);
+                $this->Common->setLoginInfo($this->user->id);
+                $this->Common->dealReturn(true, '操作成功', ['action' => $newLimit, 'reload' => true]);
             } else {
                 $this->Common->dealReturn(false, '操作失败');
             }
@@ -79,7 +80,8 @@ class SlimitController extends AppController
                 $entity = $this->Slimit->get($data['id']);
                 $result = $this->Slimit->delete($entity);
                 if($result) {
-                    $this->Common->dealReturn(true, '操作成功');
+                    $this->Common->setLoginInfo($this->user->id);
+                    $this->Common->dealReturn(true, '操作成功', ['reload' => true]);
                 } else {
                     $this->Common->dealReturn(true, '操作失败');
                 }

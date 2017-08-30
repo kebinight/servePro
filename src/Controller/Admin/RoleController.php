@@ -8,6 +8,7 @@ use GlobalCode;
  * Role Controller
  *
  * @property \App\Model\Table\SroleTable $Srole
+ * @property \App\Controller\Component\CommonComponent $Common
  */
 class RoleController extends AppController
 {
@@ -82,7 +83,8 @@ class RoleController extends AppController
             }
 
             if($this->Srole->save($newRole)) {
-                $this->Common->dealReturn(true, '操作成功');
+                $this->Common->setLoginInfo($this->user->id);
+                $this->Common->dealReturn(true, '操作成功', ['reload' => true]);
             } else {
                 $this->Common->dealReturn(false, '操作失败');
             }
@@ -102,7 +104,8 @@ class RoleController extends AppController
                 $entity = $this->Srole->get($data['id']);
                 $result = $this->Srole->delete($entity);
                 if($result) {
-                    $this->Common->dealReturn(true, '操作成功');
+                    $this->Common->setLoginInfo($this->user->id);
+                    $this->Common->dealReturn(true, '操作成功', ['reload' => true]);
                 } else {
                     $this->Common->dealReturn(true, '操作失败');
                 }
