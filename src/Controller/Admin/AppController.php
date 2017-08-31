@@ -64,27 +64,27 @@ class AppController extends Controller {
         $this->loadComponent('Flash');
         $this->loadComponent('Push');
 
-        $this->rq_controller = $this->request->param('controller') ? $this->request->param('controller') : '';
-        $this->rq_action = $this->request->param('action');
+        $this->rq_controller = $this->request->param('controller') ? strtolower($this->request->param('controller')) : '';
+        $this->rq_action = $this->request->param('action') ? strtolower($this->request->param('action')) : '';
 
         //无需登录的模块，格式为[controller名, action名]
         //不指定表示要检测
         //可指定特定key,表示指定不检测
         //存在 "-" 则表示反过来，即有填写的要检测，没有填写的就不检测（默认是有填写的不检测，没有填写的就检测）
         $this->loginCheckList = [
-            'Userc' => ['login'],
+            'userc' => ['login'],
             /*'Home' => ['*'],
             'Menu' => ['*'],
             'Slimit' => ['*'],
             'Role' => ['*'],*/
-            'User' => ['generateUser'],
+            'user' => ['generateuser'],
         ];
 
         //无需权限检查的模块
         //配置方法同loginCheckList
         $this->firewall = [
-            'Menu' => ['getMenu'],
-            'Userc' => ['login', 'logout']
+            'menu' => ['getmenu'],
+            'userc' => ['login', 'logout']
         ];
     }
 
@@ -183,15 +183,8 @@ class AppController extends Controller {
     {
         $user_limits = $this->Common->getLoginSession('user_limits');
         tmpLog('权限检查开始：' . $this->rq_controller . '|' . $this->rq_action);
-
-        //对首页index均不进行检查
+        if($this->user->is_super) return true;  //超级管理员拥有所有权限
         if(isset($this->firewall[$this->rq_controller])) {
-            //所有具有controller权限的用户均可以访问其index页面
-            tmpLog(stripos($this->rq_action, 'index'));
-            if(stripos($this->rq_action, 'index') !== false) {
-                return true;
-            }
-
             //对防火墙列表进行检查
             $all_Actions = $this->firewall[$this->rq_controller];
             if(is_array($all_Actions)) {
@@ -210,7 +203,13 @@ class AppController extends Controller {
             }
         }
 
+        //对首页index均不进行检查
         if(isset($user_limits[$this->rq_controller])) {
+            //用户均可以访问其index页面
+            if(stripos($this->rq_action, 'index') !== false) {
+                return true;
+            }
+
             $action_limits = $user_limits[$this->rq_controller]['children'];
             //每个action的首页index都免权限
             foreach ($action_limits as $key => $action_limit) {

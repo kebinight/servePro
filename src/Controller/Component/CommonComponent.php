@@ -188,10 +188,10 @@ class CommonComponent extends Component
             foreach ($limits as $limit) {
                 $child_tmp = [];
                 foreach ($limit->children as $item) {
-                    $child_tmp[$item->node] = $item;
+                    $child_tmp[strtolower($item->node)] = $item;
                 }
                 $limit->children = $child_tmp;
-                $limits_tmp[$limit->node] = $limit;
+                $limits_tmp[strtolower($limit->node)] = $limit;
             }
 
             unset($user->srole);

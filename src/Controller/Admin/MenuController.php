@@ -25,8 +25,7 @@ class MenuController extends AppController
     public function getMenu()
     {
         if($this->request->is(['POST'])) {
-            /*$menus = $this->Smenu->find('threaded')->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
-            if(!$menus) {
+            /*if(!$menus) {
                 $initMenu = $this->Smenu->newEntities([
                     [
                         'name' => '系统设置',
@@ -77,8 +76,11 @@ class MenuController extends AppController
                     $this->Common->failReturn(GlobalCode::API_ERROR, '数据库操作有问题，请检查', '菜单初始化失败');
                 }
             }*/
-
-            $menus = $this->Common->getLoginSession('user_menus');
+            if($this->user->is_super) {
+                $menus = $this->Smenu->find('threaded')->where(['status' => GlobalCode::COMMON_STATUS_ON])->toArray();
+            } else {
+                $menus = $this->Common->getLoginSession('user_menus');
+            }
             $this->Common->dealReturn(true, '', ['menu' => $menus]);
         }
     }
