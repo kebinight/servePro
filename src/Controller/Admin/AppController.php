@@ -31,7 +31,8 @@ class AppController extends Controller {
      * 无需验证登录的action
      * @var array
      */
-    private $firewall;
+    private $loginCheckList;   //登录检查列表，默认全部需要登录后才能访问
+    private $firewall;         //权限检查列表，默认全部需要检查权限
     protected $user;
 
     /**
@@ -70,13 +71,20 @@ class AppController extends Controller {
         //不指定表示要检测
         //可指定特定key,表示指定不检测
         //存在 "-" 则表示反过来，即有填写的要检测，没有填写的就不检测（默认是有填写的不检测，没有填写的就检测）
-        $this->firewall = [
+        $this->loginCheckList = [
             'Userc' => ['login'],
             /*'Home' => ['*'],
             'Menu' => ['*'],
             'Slimit' => ['*'],
             'Role' => ['*'],*/
             'User' => ['generateUser'],
+        ];
+
+        //无需权限检查的模块
+        //配置方法同loginCheckList
+        $this->firewall = [
+            'Menu' => ['getMenu'],
+            'Userc' => ['login', 'logout']
         ];
     }
 
@@ -145,8 +153,8 @@ class AppController extends Controller {
     private function checkLogin() {
 
         //无需登录的模块直接放行
-        if(isset($this->firewall[$this->rq_controller])) {
-            $all_Actions = $this->firewall[$this->rq_controller];
+        if(isset($this->loginCheckList[$this->rq_controller])) {
+            $all_Actions = $this->loginCheckList[$this->rq_controller];
             if(is_array($all_Actions)) {
                 //如果存在-则检测规则反过来
                 if(in_array('-', $all_Actions)) {
@@ -164,6 +172,7 @@ class AppController extends Controller {
         }
         $this->handleCheckLogin();
         $this->user = $this->Common->getLoginer();
+
     }
 
 
@@ -172,17 +181,50 @@ class AppController extends Controller {
      */
     protected function checkLimit()
     {
-        //$limits = Cache::read();
         $user_limits = $this->Common->getLoginSession('user_limits');
-        if(isset($user_limits[$this->rq_controller])) {
-            $action_limits = $user_limits[$this->rq_controller];
-            if(!isset($action_limits[$this->rq_action])) {
-                $this->Common->failReturn(GlobalCode::API_NO_LIMIT);
+        tmpLog('权限检查开始：' . $this->rq_controller . '|' . $this->rq_action);
+
+        //对首页index均不进行检查
+        if(isset($this->firewall[$this->rq_controller])) {
+            //所有具有controller权限的用户均可以访问其index页面
+            tmpLog(stripos($this->rq_action, 'index'));
+            if(stripos($this->rq_action, 'index') !== false) {
+                return true;
             }
-        } else {
-            $this->Common->failReturn(GlobalCode::API_NO_LIMIT);
+
+            //对防火墙列表进行检查
+            $all_Actions = $this->firewall[$this->rq_controller];
+            if(is_array($all_Actions)) {
+                //如果存在-则检测规则反过来
+                if(in_array('-', $all_Actions)) {
+                    if(!in_array($this->rq_action, $all_Actions)) {
+                        return true;
+                    }
+                } else {
+                    if(in_array($this->rq_action, $all_Actions)) {
+                        return true;
+                    }
+                }
+            } else if('*' == $all_Actions){
+                return true;
+            }
         }
+
+        if(isset($user_limits[$this->rq_controller])) {
+            $action_limits = $user_limits[$this->rq_controller]['children'];
+            //每个action的首页index都免权限
+            foreach ($action_limits as $key => $action_limit) {
+                if(stripos($this->rq_action, $key) !== false) {
+                    return true;
+                }
+            }
+            if(!isset($action_limits[$this->rq_action])) {
+                $this->Common->failReturn(GlobalCode::API_NO_LIMIT, '', '非法访问');
+            }
+        }
+        $this->Common->failReturn(GlobalCode::API_NO_LIMIT, '', '非法访问');
     }
+
 
     /**
      * 处理检测登陆
