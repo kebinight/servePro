@@ -102,6 +102,16 @@ class AppController extends Controller {
         $this->checkLogin();  //自动登录并检测登陆
         $this->checkLimit();  //检查用户权限
 
+        //为每个index页面添加对应的用户权限
+        if($this->user && ($this->user->is_super == GlobalCode::COMMON_STATUS_OFF)) {
+            $user_limits = $this->Common->getLoginSession('user_limits');
+            $this->set([
+                'limits' => (isset($user_limits[$this->rq_controller]) ? $user_limits[$this->rq_controller] : [])
+            ]);
+        } else {
+
+        }
+
         //更新用户登录信息
         /*if($this->user){
             $curtimestamp = time();
@@ -183,7 +193,6 @@ class AppController extends Controller {
     {
         $user_limits = $this->Common->getLoginSession('user_limits');
         tmpLog('权限检查开始：' . $this->rq_controller . '|' . $this->rq_action);
-        if($this->user->is_super) return true;  //超级管理员拥有所有权限
         if(isset($this->firewall[$this->rq_controller])) {
             //对防火墙列表进行检查
             $all_Actions = $this->firewall[$this->rq_controller];
@@ -203,6 +212,7 @@ class AppController extends Controller {
             }
         }
 
+        if($this->user->is_super) return true;  //超级管理员拥有所有权限
         //对首页index均不进行检查
         if(isset($user_limits[$this->rq_controller])) {
             //用户均可以访问其index页面
@@ -210,9 +220,9 @@ class AppController extends Controller {
                 return true;
             }
 
-            $action_limits = $user_limits[$this->rq_controller]['children'];
+            $action_limits = $user_limits[$this->rq_controller];
             //每个action的首页index都免权限
-            foreach ($action_limits as $key => $action_limit) {
+            foreach ($action_limits as $key) {
                 if(stripos($this->rq_action, $key) !== false) {
                     return true;
                 }

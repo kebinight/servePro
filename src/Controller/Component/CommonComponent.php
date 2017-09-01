@@ -70,6 +70,16 @@ class CommonComponent extends Component
      * @param string $format  返回的数据格式
      */
     public function dealReturn($status = true, $msg = '', $data = [], $format = 'json') {
+        //给每请求注入该用户拥有的权限
+        $loginer = $this->getLoginer();
+        if($loginer && ($loginer->is_super == GlobalCode::COMMON_STATUS_OFF)) {
+            $user_limits = $this->getLoginSession('user_limits');
+            $controller = $this->request->param('controller') ? strtolower($this->request->param('controller')) : '';
+            $data['user_limits'] = isset($user_limits[$controller]) ? $user_limits[$controller] : [];
+        } else {
+            $data['user_limits'] = ['*'];
+        }
+
         $returnData = [
             'code' => GlobalCode::API_SUCCESS,
             'status' => $status,
@@ -188,10 +198,9 @@ class CommonComponent extends Component
             foreach ($limits as $limit) {
                 $child_tmp = [];
                 foreach ($limit->children as $item) {
-                    $child_tmp[strtolower($item->node)] = $item;
+                    $child_tmp[] = strtolower($item->node);
                 }
-                $limit->children = $child_tmp;
-                $limits_tmp[strtolower($limit->node)] = $limit;
+                $limits_tmp[strtolower($limit->node)] = $child_tmp;
             }
 
             unset($user->srole);

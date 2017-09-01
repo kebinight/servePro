@@ -45,9 +45,16 @@ class UserController extends AppController
     public function index()
     {
         if($this->request->is('POST')) {
+            $where = [];
+            //只有系统内置超级管理员才能修改系统内置超级管理员信息
+            if($this->user->is_super != GlobalCode::COMMON_STATUS_ON) {
+                $where['is_super'] = GlobalCode::COMMON_STATUS_OFF;
+            }
+
             $users = $this->Suser->find()->contain(['Srole' => function($q) {
                 return $q->where(['status' => GlobalCode::COMMON_STATUS_ON]);
-            }])->map(function($row) {
+            }])->where($where)
+                ->map(function($row) {
                 $row->create_time = $row->create_time->i18nFormat('yyyy-MM-dd HH:mm');
                 $row->update_time = $row->update_time->i18nFormat('yyyy-MM-dd HH:mm');
                 return $row;
@@ -66,6 +73,11 @@ class UserController extends AppController
                 $newUser = $this->Suser->patchEntity($user, $data);
             } else {
                 $newUser = $this->Suser->newEntity($data);
+            }
+
+            //只有系统内置超级管理员才能修改系统内置超级管理员信息
+            if(($this->user->is_super != GlobalCode::COMMON_STATUS_ON) && ($newUser->is_super == GlobalCode::COMMON_STATUS_ON)) {
+                $this->Common->failReturn(GlobalCode::API_NO_LIMIT, '', '缺乏权限');
             }
 
             if($this->Suser->save($newUser)) {
